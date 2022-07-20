@@ -8,6 +8,12 @@ import heart from '../../img/heart_icon.svg';
 import telephone from '../../img/telephone_icon.svg';
 import search from '../../img/search-interface-symbol_icon.svg';
 import basket from '../../img/icon_office.svg';
+import burger from '../../img/burger.svg';
+import mobile_lable from '../../img/mobile_lable.svg';
+import seven from '../../img/24_7.svg';
+import search_white from '../../img/search_wait.svg';
+import basket_white from '../../img/basket_wait.svg';
+import heart_white from '../../img/heart_wait.svg';
 
 
 function Header() {
@@ -46,9 +52,9 @@ function Header() {
                     </div>
                 </div>
                 <div className="header__lable-icon-container">
-                    <img className='header__lable-icon-mini' src={search} alt="иконка поиска по сайту" />
-                    <img className='header__lable-icon-mini' src={basket} alt="иконка корзины" />
-                    <img className='header__lable-icon-mini' src={heart} alt="иконка лайка" />
+                    <Link to={'/'} ><img className='header__lable-icon-mini' src={search} alt="иконка поиска по сайту" /></Link>
+                    <Link to={'/'} ><img className='header__lable-icon-mini' src={basket} alt="иконка корзины" /></Link>
+                    <Link to={'/'} ><img className='header__lable-icon-mini' src={heart} alt="иконка лайка" /></Link>
                 </div>
             </div>
             <div className="header__bottom">
@@ -60,6 +66,28 @@ function Header() {
                 <Link to={'/'} className='header__bottom-link'>Сладости</Link>
                 <Link to={'/'} className='header__bottom-link'>Услуги</Link>
                 <Link to={'/'} className='header__bottom-link'>Аксессуары</Link>
+            </div>
+            <div className="header__mobile">
+                <div className="header__mobile-lable-container">
+                    <button className="header__mobile-button"> <img className='header__mobile-burger' src={burger} alt="иконка меню" /></button>
+                    <img className="header__mobile-lable" src={mobile_lable} alt="лэйбл флористмэн" />
+                </div>
+                <div className="header__mobile-icon-container">
+                    <Link to={'/'} className='header__mobile-icon-link'> <img className='header__mobile-icon' src={search_white} alt="иконка поиска по сайту" /></Link>
+                    <Link to={'/'} className='header__mobile-icon-link'><img className='header__mobile-icon' src={basket_white} alt="иконка корзины" /></Link>
+                    <Link to={'/'} className='header__mobile-icon-link'><img className='header__mobile-icon' src={heart_white} alt="иконка лайка" /></Link>
+                </div>
+            </div>
+            <div className="header__contacts">
+                <div className="header__contacts-text-container">
+                    <h4 className="header__contacts-text">Доставка цветов
+                        по Москве и МО</h4>
+                    <img className="header__contacts-image" alt='работаем 24 на 7' src={seven} />
+                </div>
+                <div className="header__contacts-telephone-container">
+                    <p className="header__contacts-telephone">+7 965 765-70-07</p>
+                    <p className="header__contacts-telephone">+7 925 965-70-07</p>
+                </div>
             </div>
         </section>
     );
