@@ -1,5 +1,12 @@
 import React from "react";
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+//import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
+// import 'swiper/css/scrollbar';
 import './Main.scss';
+import 'swiper/css';
 import { Link } from 'react-router-dom';
 import image from '../../img/main__image.svg';
 import tort from '../../img/tort.svg';
@@ -27,6 +34,7 @@ import InformationItem from "../InformationItem/InformationItem";
 
 
 function Main() {
+    const swiper = useSwiper();
     return (
         <section className="main">
             <div className="main__image-container">
@@ -44,14 +52,24 @@ function Main() {
             </div>
             <h2 className="main__title">Акции</h2>
             <div className="main__stock">
-                <button className="main__stock-button-left"><img src={button_left} alt="левая кнопка в виде стрелки" /></button>
-                <div className="main__stock-container">
-                    <CardStock price={'1500 р'} priseOld={'1900 р'} image={stock_flowers} text={'Корзина роз yf pfrfop e ntnb rkfhs'} />
-                    <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} />
-                    <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} />
-                    <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} />
+                <button className="main__stock-button-left"><img src={button_left} alt="левая кнопка в виде стрелки" onClick={() => swiper.slideNext()} /></button>
+                <Swiper className="main__stock-container" spaceBetween={30}
+                    modules={[Pagination]}
+                    slidesPerView={4}
+                    onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log(swiper)}
+                    pagination={{ clickable: true }}
+                >
+                    <SwiperSlide> <CardStock price={'1500 р'} priseOld={'1900 р'} image={stock_flowers} text={'Корзина роз yf pfrfop e ntnb rkfhs'} /></SwiperSlide>
+                    <SwiperSlide> <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} /></SwiperSlide>
+                    <SwiperSlide><CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} /></SwiperSlide>
+                    <SwiperSlide> <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} /></SwiperSlide>
+                    <SwiperSlide> <CardStock price={'1500 р'} priseOld={'1900 р'} image={stock_flowers} text={'Корзина роз yf pfrfop e ntnb rkfhs'} /></SwiperSlide>
+                    <SwiperSlide> <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} /></SwiperSlide>
+                    <SwiperSlide><CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} /></SwiperSlide>
+                    <SwiperSlide> <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} /></SwiperSlide>
 
-                </div>
+                </Swiper>
                 <button className="main__stock-button-right"><img src={button_right} alt="правая кнопка в виде стрелки" /></button>
             </div>
             <h2 className="main__title">Заказать уникальный букет</h2>
