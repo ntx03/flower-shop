@@ -16,8 +16,7 @@ import basket_white from '../../img/basket_wait.svg';
 import heart_white from '../../img/heart_wait.svg';
 
 
-function Header() {
-    console.log(icon);
+function Header({ openNavigation }) {
     return (
         <section className="header">
             <div className="header__up">
@@ -37,7 +36,7 @@ function Header() {
                 </div>
             </div>
             <div className="header__lable">
-                <img className='header__lable-icon' src={main_lable} alt="лэйбл флористмэн " />
+                <Link to={'/'}><img className='header__lable-icon' src={main_lable} alt="лэйбл флористмэн" /></Link>
                 <div className="header__lable-container">
                     <div className="header__lable-adress-container">
                         <h3 className="header__lable-adress-container-title">Адрес магазина</h3>
@@ -58,7 +57,7 @@ function Header() {
                 </div>
             </div>
             <div className="header__bottom">
-                <Link to={'/'} className='header__bottom-link'>Цветы</Link>
+                <Link to='/flowers' className='header__bottom-link'>Цветы</Link>
                 <Link to={'/'} className='header__bottom-link'>Подарки</Link>
                 <Link to={'/'} className='header__bottom-link'>Фруктовые корзины</Link>
                 <Link to={'/'} className='header__bottom-link'>Воздушные шарики</Link>
@@ -69,7 +68,7 @@ function Header() {
             </div>
             <div className="header__mobile">
                 <div className="header__mobile-lable-container">
-                    <button className="header__mobile-button"> <img className='header__mobile-burger' src={burger} alt="иконка меню" /></button>
+                    <button className="header__mobile-button" onClick={openNavigation}> <img className='header__mobile-burger' src={burger} alt="иконка меню" /></button>
                     <img className="header__mobile-lable" src={mobile_lable} alt="лэйбл флористмэн" />
                 </div>
                 <div className="header__mobile-icon-container">

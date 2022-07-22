@@ -210,6 +210,7 @@
                 border: none;
                 background-color: inherit;
                 margin: auto 34px auto 0px;
+                outline: none;
                 .header__mobile-burger {
                     margin: 0;
                     padding: 0;
@@ -329,6 +330,7 @@
 @media (max-width: 1250px) {
     .header {
         width: 94.7vw;
+        margin: 0px auto 0 auto;
     }
 }
 
