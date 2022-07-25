@@ -2,7 +2,7 @@ import React from "react";
 import './Header.scss';
 import { Link } from 'react-router-dom';
 import icon from '../../img/icon_office.svg';
-//const icon = require('../../img/icon_office.svg');
+import { useDispatch } from 'react-redux';
 import main_lable from '../../img/main__lable.svg';
 import heart from '../../img/heart_icon.svg';
 import telephone from '../../img/telephone_icon.svg';
@@ -16,7 +16,10 @@ import basket_white from '../../img/basket_wait.svg';
 import heart_white from '../../img/heart_wait.svg';
 
 
-function Header({ openNavigation }) {
+function Header() {
+
+    const dispatch = useDispatch();
+
     return (
         <section className="header">
             <div className="header__up">
@@ -68,7 +71,7 @@ function Header({ openNavigation }) {
             </div>
             <div className="header__mobile">
                 <div className="header__mobile-lable-container">
-                    <button className="header__mobile-button" onClick={openNavigation}> <img className='header__mobile-burger' src={burger} alt="иконка меню" /></button>
+                    <button className="header__mobile-button" onClick={() => dispatch({ type: 'navigation_true', payload: true })}> <img className='header__mobile-burger' src={burger} alt="иконка меню" /></button>
                     <img className="header__mobile-lable" src={mobile_lable} alt="лэйбл флористмэн" />
                 </div>
                 <div className="header__mobile-icon-container">

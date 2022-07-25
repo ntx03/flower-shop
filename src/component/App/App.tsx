@@ -1,14 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 import Flowers from '../Flowers/Flowers';
 import Main from '../Main/Main';
 import './App.scss';
+import { useSelector, useDispatch } from 'react-redux'
+import Basket from '../Basket/Basket';
+
+
 
 function App() {
 
-  const [navigation, setNavigation] = React.useState(false);
+  const navigation: boolean = useSelector(state => state['navigation']);
+
+  const dispatch = useDispatch();
 
   // закрываем навигацию по esc
   React.useEffect(() => {
@@ -16,27 +22,28 @@ function App() {
       const closePopupEsc = (evt) => {
         if (evt.key === 'Escape') {
           document.removeEventListener('keydown', closePopupEsc);
-          setNavigation(false);
+          dispatch({ type: 'navigation_false', payload: false })
         }
       }
       document.addEventListener('keydown', closePopupEsc);
     }
-  }, [navigation]);
+  }, [dispatch, navigation]);
 
-  function openNavigation() {
-    setNavigation(true);
-  }
+  // function openNavigation() {
+  //   setNavigation(true);
+  // }
 
   return (
     <div className="App">
       <div className='App__container'>
         <Routes>
-          <Route path='/' element={<Main openNavigation={openNavigation} />} />
-          <Route path='/flowers' element={<Flowers openNavigation={openNavigation} />} />
+          <Route path='/' element={<Main />} />
+          <Route path='/flowers' element={<Flowers />} />
+          <Route path='/basket' element={<Basket />} />
         </Routes>
       </div>
       <Footer />
-      <Navigation isOpen={navigation} isClose={() => setNavigation(false)} />
+      <Navigation isOpen={navigation} />
     </div>
   );
 }

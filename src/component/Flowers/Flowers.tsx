@@ -2,21 +2,21 @@ import React from "react";
 import Header from "../Header/Header";
 import ProductCard from "../ProductCard/PoductCard";
 import './Flowers.scss';
-import flowers from '../../img/flowers.svg';
-import icon_home from '../../img/home_icon.svg';
+import { productCard } from "../../utils/constantsFlowersPage";
+//import icon_home from '../../img/home_icon.svg';
 import ProductContainer from "../ProdictContainer/ProdictContainer";
 
-function Flowers({ openNavigation }) {
+function Flowers() {
     return (
         <>
-            <Header openNavigation={openNavigation} />
+            <Header />
             <ProductContainer nameNavigation={'Цветы'} children={
                 <>
-                    <ProductCard image={flowers} text={'корзина фиолетовых роз'} price={'1500 ₽'} priseOld={'2500 ₽'} />
-                    <ProductCard image={flowers} text={'корзина фиолетовых роз'} price={'1500 ₽'} priseOld={'2500 ₽'} />
-                    <ProductCard image={flowers} text={'корзина фиолетовых роз'} price={'1500 ₽'} priseOld={'2500 ₽'} />
-                    <ProductCard image={flowers} text={'корзина фиолетовых роз'} price={'1500 ₽'} priseOld={'2500 ₽'} />
-                    <ProductCard image={flowers} text={'корзина фиолетовых роз'} price={'1500 ₽'} priseOld={'2500 ₽'} />
+                    {productCard.map((item) => {
+                        console.log(item);
+                        return (<ProductCard image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} />)
+                    }
+                    )}
                 </>
             } />
         </>

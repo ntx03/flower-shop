@@ -4,14 +4,9 @@ import Footer from "../Footer/Footer";
 import './Main.scss';
 import 'swiper/css';
 import image from '../../img/main__image.svg';
-import tort from '../../img/tort.svg';
-import ball from '../../img/air_ball.svg';
-import fruts from '../../img/frut.svg';
-import gifts from '../../img/gifts.svg';
-import plants from '../../img/plants.svg';
-import servises from '../../img/servises.svg';
-import accessories from '../../img/accessories.svg';
-import flowers from '../../img/flowers.svg';
+// для главного меню 
+import { mainCardProducts, cardStock } from '../../utils/constantsMainPage';
+
 import button_left from '../../img/button_left.svg';
 import button_right from '../../img/button_right.svg';
 import stock_flowers from '../../img/stock_flower.svg';
@@ -28,37 +23,28 @@ import CardStock from "../CardStock/CardStock";
 import InformationItem from "../InformationItem/InformationItem";
 
 
-function Main({ openNavigation }) {
+function Main() {
     return (
         <>
-            <Header openNavigation={openNavigation} />
+            <Header />
             <section className="main">
                 <div className="main__image-container">
                     <img src={image} className="main__image" alt='изображение с фруктами'></img>
                 </div>
                 <div className="main__card-container">
-                    <CardMainProducts link={'/flowers'} image={flowers} name={'Цветы'} />
-                    <CardMainProducts link={'/'} image={ball} name={'Воздушные шарики'} />
-                    <CardMainProducts link={'/'} image={tort} name={'Сладости'} />
-                    <CardMainProducts link={'/'} image={fruts} name={'Фруктовые корзины'} />
-                    <CardMainProducts link={'/'} image={plants} name={'Комнатные растения'} />
-                    <CardMainProducts link={'/'} image={gifts} name={'Подарки'} />
-                    <CardMainProducts link={'/'} image={servises} name={'Услуги'} />
-                    <CardMainProducts link={'/'} image={accessories} name={'Аксессуары'} />
+                    {mainCardProducts.map((item) => {
+                        return (<CardMainProducts link={item.link} image={item.image} name={item.name} key={item.name} />)
+                    }
+                    )}
                 </div>
                 <h2 className="main__title">Акции</h2>
                 <div className="main__stock">
                     <button className="main__stock-button-left"><img src={button_left} alt="левая кнопка в виде стрелки" /></button>
                     <div className="main__stock-container">
-                        <CardStock price={'1500 р'} priseOld={'1900 р'} image={stock_flowers} text={'Корзина роз yf pfrfop e ntnb rkfhs'} />
-                        <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} />
-                        <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} />
-                        <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} />
-                        <CardStock price={'1500 р'} priseOld={'1900 р'} image={stock_flowers} text={'Корзина роз yf pfrfop e ntnb rkfhs'} />
-                        <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} />
-                        <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} />
-                        <CardStock price={'150 р'} priseOld={'190 р'} image={stock_flowers} text={'Корзина роз'} />
-
+                        {cardStock.map((item) => {
+                            return (<CardStock price={item.price} priseOld={item.priseOld} image={item.image} text={item.text} />)
+                        }
+                        )}
                     </div>
                     <button className="main__stock-button-right"><img src={button_right} alt="правая кнопка в виде стрелки" /></button>
                 </div>
