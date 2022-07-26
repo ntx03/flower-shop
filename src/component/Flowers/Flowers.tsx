@@ -13,7 +13,6 @@ function Flowers() {
             <ProductContainer nameNavigation={'Цветы'} children={
                 <>
                     {productCard.map((item) => {
-                        console.log(item);
                         return (<ProductCard image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} />)
                     }
                     )}
