@@ -10,6 +10,12 @@ interface productBasketShema {
     heigth: string,
 }
 
+interface productOrderShema {
+    image: string,
+    title: string,
+    price: string,
+}
+
 export const basketCard: productBasketShema[] = [
     {
         image: flowers,
@@ -26,3 +32,17 @@ export const basketCard: productBasketShema[] = [
         heigth: '50 см',
     },
 ]
+
+export const orderCard: productOrderShema[] = [
+    {
+        image: flowers,
+        title: 'Корзина красных роз крупная',
+        price: '1500 ₽',
+    },
+    {
+        image: flowers,
+        title: 'Корзина красных роз крупная',
+        price: '5500 ₽',
+    },
+]
+

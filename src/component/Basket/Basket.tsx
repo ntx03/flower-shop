@@ -4,6 +4,7 @@ import BasketProductCard from './BasketProductCard/BasketProductCard';
 import { basketCard } from '../../utils/constantsBasketPage';
 import image from '../../img/image.svg';
 import fotoapparat from '../../img/fotoapparat.svg';
+import BasketCheckBox from './BasketCheckBox/BasketCheckBox';
 
 
 function Basket() {
@@ -63,25 +64,11 @@ function Basket() {
                             </div>
                         </div>
                         <div className='basket__check-box-container'>
-                            <div className='basket__check-box-item'>
-                                <img className='basket__check-box-item-image' src={image} alt="иконка карточки" />
-                                <input type='checkbox' className='basket__check-box-item-checkbox' />
-                                <p className='basket__check-box-item-text'>Добавьте открытку - <span className='basket__check-box-item-text-span'>бесплатно!</span></p>
-                                <p className='basket__check-box-item-information' title='вопрос'>?</p>
-                            </div>
-                            <div className='basket__check-box-item'>
-                                <img className='basket__check-box-item-image' src={fotoapparat} alt="иконка карточки" />
-                                <input type='checkbox' className='basket__check-box-item-checkbox' />
-                                <p className='basket__check-box-item-text'>Фото при получении - <span className='basket__check-box-item-text-span'>бесплатно!</span></p>
-                                <p className='basket__check-box-item-information' title='вопрос'>?</p>
-                            </div>
-                            <div className='basket__check-box-item'>
-                                <img className='basket__check-box-item-image' src={fotoapparat} alt="иконка карточки" />
-                                <input type='checkbox' className='basket__check-box-item-checkbox' />
-                                <p className='basket__check-box-item-text'>Фото букета до доставки - <span className='basket__check-box-item-text-span'>бесплатно!</span></p>
-                                <p className='basket__check-box-item-information' title='вопрос'>?</p>
-                            </div>
+                            <BasketCheckBox image={image} text={'Добавьте открытку -'} textSpan={'бесплатно!'} qestionInformation={'вопрос'} />
+                            <BasketCheckBox image={fotoapparat} text={'Фото при получении -'} textSpan={'бесплатно!'} qestionInformation={'вопрос'} />
+                            <BasketCheckBox image={fotoapparat} text={'Фото букета до доставки -'} textSpan={'бесплатно!'} qestionInformation={'вопрос'} />
                         </div>
+                        <button className='basket__final-button'>Оформить заказ</button>
                     </form>
                 </div>
 

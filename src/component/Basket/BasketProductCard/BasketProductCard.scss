@@ -249,6 +249,16 @@
     .basket__check-box-container {
         flex-direction: column;
     }
+
+    .basket__check-box-item {
+        margin: 20px 10px 0px 0px;
+        &:first-child {
+            margin: 20px 0 0px 0;
+        }
+        &:last-child {
+            margin: 20px 0 20px 0;
+        }
+    }
 }
 @media (max-width: 760px) {
     .basket__products-container {
@@ -301,5 +311,14 @@
 
     .basket__products-button-delete-mobile {
         margin: 100px 0 auto 30px;
+    }
+}
+
+@media (max-width: 450px) {
+    .basket__check-box-item-text {
+        font-size: 14px;
+        line-height: 19px;
+        white-space: normal;
+        width: 160px;
     }
 }

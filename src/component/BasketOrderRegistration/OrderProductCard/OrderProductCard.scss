@@ -1,0 +1,36 @@
+.card__order {
+    display: flex;
+    margin: 40px auto 40px 0px;
+    &-image {
+        width: 195px;
+        height: 195px;
+        margin: 0px 26px 0px 0px;
+    }
+
+    &-text-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        margin: auto 0px auto 0px;
+        .card__order-title {
+            margin: 0px 0px 3px 0px;
+            padding: 0;
+        }
+        .card__order-price {
+            font-size: 24px;
+            line-height: 33px;
+            font-weight: 600;
+            margin: 0px auto 0px 0px;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .card__order {
+        flex-direction: column;
+    }
+
+    .card__order-text-container {
+        margin: 26px 0px auto 0px;
+    }
+}

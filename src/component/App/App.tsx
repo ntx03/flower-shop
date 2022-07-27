@@ -7,8 +7,7 @@ import Main from '../Main/Main';
 import './App.scss';
 import { useSelector, useDispatch } from 'react-redux'
 import Basket from '../Basket/Basket';
-
-
+import BasketOrderRegistration from '../BasketOrderRegistration/BasketOrderRagistration';
 
 function App() {
 
@@ -40,6 +39,7 @@ function App() {
           <Route path='/' element={<Main />} />
           <Route path='/flowers' element={<Flowers />} />
           <Route path='/basket' element={<Basket />} />
+          <Route path='/order' element={<BasketOrderRegistration />} />
         </Routes>
       </div>
       <Footer />
