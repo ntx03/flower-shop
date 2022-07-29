@@ -7,7 +7,7 @@ import main_lable from '../../img/main__lable.svg';
 import heart from '../../img/heart_icon.svg';
 import telephone from '../../img/telephone_icon.svg';
 import search from '../../img/search-interface-symbol_icon.svg';
-import basket from '../../img/icon_office.svg';
+import basket from '../../img/header_basket.svg';
 import burger from '../../img/burger.svg';
 import mobile_lable from '../../img/mobile_lable.svg';
 import seven from '../../img/24_7.svg';
