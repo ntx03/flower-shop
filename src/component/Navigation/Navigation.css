@@ -20,7 +20,7 @@
 .navigation_open {
     width: 100vw;
     background-color: #56C54B;
-
+    z-index: 2;
     display: flex;
     opacity: 1;
     visibility: visible;

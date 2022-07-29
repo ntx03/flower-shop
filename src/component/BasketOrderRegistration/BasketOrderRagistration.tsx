@@ -1,4 +1,5 @@
 import './BasketOrderRegistration.scss';
+import '../Basket/Basket.scss';
 import React from 'react';
 import Header from '../Header/Header';
 import { orderCard } from '../../utils/constantsBasketPage';
@@ -182,10 +183,22 @@ function BasketOrderRegistration() {
                             </div>
 
                         </div>
-                        <div className='order__form-title-checkbox-container'>
-                            <input className='order__form-checkbox-delivery' type="checkbox" checked={checkboxTheeHouers} onChange={() => { SetCheckboxTheeHouers(!checkboxTheeHouers) }} />
-                            <p className='order__form-checkbox-text-delivery'>В течение 3-х часов после оплаты заказа</p>
+                        <div className='order__form-title-checkbox-container-box'>
+                            <div className='order__form-title-checkbox-container'>
+                                <input className='order__form-checkbox-delivery' type="checkbox" checked={checkboxTheeHouers} onChange={() => { SetCheckboxTheeHouers(!checkboxTheeHouers) }} />
+                                <p className='order__form-checkbox-text-delivery'>В течение 3-х часов после оплаты заказа</p>
+                            </div>
+                            <div className='order__form-title-checkbox-container-delivery'>
+                                <input className='order__form-checkbox-delivery' type="checkbox" checked={checkboxTheeHouers} onChange={() => { SetCheckboxTheeHouers(!checkboxTheeHouers) }} />
+                                <p className='order__form-checkbox-text-delivery'>Бесконтактная доставка</p>
+                                <p className='basket__check-box-item-information' title='привет'>?</p>
+                            </div>
                         </div>
+                    </div>
+                    <div className='order__form-button-box'>
+                        <button className='order__form-button-basket'>Вернуться в корзину</button>
+                        <button className='order__form-button-pay'>Перейти к оплате</button>
+                        <p className='order__form-politica-text'>Нажимая кнопку "Перейти к оплате", вы соглашаетесь с правилами <span className='order__form-politica-text-span'>Политики конфиденциальности</span></p>
                     </div>
                 </form>
 

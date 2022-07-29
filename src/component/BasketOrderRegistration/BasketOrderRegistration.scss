@@ -136,13 +136,27 @@
     margin: auto 0 auto 0;
     text-transform: uppercase;
 }
-
+.order__form-title-checkbox-container-box {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 10px;
+}
 .order__form-title-checkbox-container {
     display: grid;
     grid-template-columns: min-content 1fr;
     gap: 13px;
     margin: 0;
 }
+
+.order__form-title-checkbox-container-delivery {
+    display: grid;
+    gap: 13px;
+    grid-template-columns: min-content max-content min-content;
+    // margin: 18px 18px 50px auto;
+    max-width: 289px;
+}
+
 .order__form-checkbox {
     margin: auto 0 auto 0;
     height: 14px;
@@ -277,7 +291,7 @@
     font-size: 20px;
     line-height: 27px;
     max-width: 1032px;
-    margin: 33px auto 40px 34px;
+    margin: 33px 34px 40px 34px;
     padding: 0;
     text-align: start;
 }
@@ -307,6 +321,13 @@
     gap: 25px;
     margin: 33px 34px 0 34px;
 }
+.order__form-input-container-three {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 25px;
+    margin: 18px 34px 0 34px;
+}
 
 .input__container {
     width: 100%;
@@ -322,6 +343,64 @@
     border-top-left-radius: 4px;
     background-color: #ffffff;
     box-sizing: border-box;
+}
+
+.order__form-button-box {
+    display: grid;
+    grid-template-columns: min-content min-content 1fr;
+    margin: 50px 20px 50px 34px;
+    gap: 20px;
+    //flex-wrap: wrap;
+}
+.order__form-button-basket {
+    width: 299px;
+    height: 54px;
+    border-radius: 7px;
+    border: 2px solid #55b74c;
+    background-color: inherit;
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 700;
+    text-align: center;
+    //padding: 10px 0px 0px 0px;
+    color: #55b74c;
+    margin: auto 0px auto 0px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.order__form-button-pay {
+    width: 269px;
+    height: 54px;
+    border-radius: 7px;
+    border: none;
+    background-color: #55b74c;
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 700;
+    text-align: center;
+    //padding: 10px 0px 0px 0px;
+    color: #ffffff;
+    margin: auto 15px auto 15px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.order__form-politica-text {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    line-height: 21px;
+    max-width: 393px;
+    height: min-content;
+    text-align: start;
+    margin: auto 0px auto 0px;
+    &-span {
+        color: #55b74c;
+        cursor: pointer;
+    }
 }
 
 @media (max-width: 1330px) {
@@ -347,6 +426,16 @@
 @media (max-width: 1206px) {
     .order__check-box-container {
         justify-content: center;
+    }
+}
+@media (max-width: 1024px) {
+    .order__form-button-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 50px 20px 50px 34px;
+        gap: 20px;
+        justify-items: center;
+        //flex-wrap: wrap;
     }
 }
 
@@ -378,6 +467,16 @@
     .order {
         margin: 20px auto 20px auto;
     }
+    .order__form-button-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 50px 20px 50px 34px;
+        gap: 20px;
+        align-items: center;
+    }
+    .order__form-politica-text {
+        text-align: center;
+    }
 }
 @media (max-width: 600px) {
     .order__list-title {
@@ -387,6 +486,24 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+
+    .order__form-text {
+        font-size: 14px;
+        line-height: 19px;
+        margin: 0px 20px 0 20px;
+    }
+
+    .order__form-title-container {
+        margin: 20px 0px 0px 20px;
+    }
+
+    .order__form-input-container {
+        margin: 20px 20px 20px 20px;
+    }
+
+    .order__form-input-container-two {
+        margin: 20px 20px 0px 20px;
     }
 }
 @media (max-width: 500px) {
@@ -427,6 +544,40 @@
     }
 
     .order__form-checkbox-text-delivery {
+        font-size: 14px;
+        line-height: 19px;
+    }
+    .input_adress {
+        width: 90%;
+    }
+    .order__form-title-checkbox-container-box {
+        gap: 10px;
+        margin-top: 0px;
+    }
+
+    .order__form-button-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 20px 20px 20px 20px;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .order__form-button-basket {
+        width: 230px;
+        height: 44px;
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .order__form-button-pay {
+        width: 230px;
+        height: 44px;
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .order__form-politica-text {
         font-size: 14px;
         line-height: 19px;
     }
