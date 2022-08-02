@@ -498,10 +498,49 @@
                 padding-top: 20px;
                 outline: none;
             }
+            .main__form-input_validate {
+                border: red 1px solid;
+            }
+            .main__form-input-file-text {
+                padding: 0;
+                margin: 10px auto 0 0;
+                font-size: 14px;
+                line-height: 19px;
+                color: #55b74c;
+                font-weight: 500;
+                max-width: 250px;
+                text-align: center;
+            }
+
+            .main__form-input-file-text_none {
+                display: none;
+            }
 
             @media (max-width: 999px) {
                 .main__form-input-idea {
                     height: 110px;
+                }
+                .main__form-input-file-text {
+                    max-width: 200px;
+                }
+            }
+
+            @media (max-width: 840px) {
+                .main__form-input-file-text {
+                    max-width: 400px;
+                }
+            }
+
+            @media (max-width: 760px) {
+                .main__form-input-file-text {
+                    max-width: 250px;
+                }
+            }
+
+            @media (max-width: 650px) {
+                .main__form-input-file-text {
+                    max-width: 500px;
+                    margin: 10px auto 0px auto;
                 }
             }
 
@@ -554,10 +593,14 @@
             display: grid;
             grid-template-columns: 1.5fr 1fr;
             gap: 30px;
+            input[type="file"] {
+                display: none;
+            }
             .main__form-button-file {
                 width: 100%;
-                height: 59px;
+                height: 46px;
                 color: #55b74c;
+                padding-top: 13px;
                 text-align: center;
                 font-size: 24px;
                 line-height: 32px;
@@ -590,9 +633,17 @@
                     transition: 0.5s;
                 }
             }
+            .main__form-button-send_disabled {
+                background-color: #bebcbcfe;
+            }
+
             @media (max-width: 999px) {
                 .main__form-button-file {
                     margin: 0px 0px 0px 0px;
+                    padding-top: 18px;
+                    font-size: 20px;
+                    line-height: 25px;
+                    height: 40px;
                 }
             }
 

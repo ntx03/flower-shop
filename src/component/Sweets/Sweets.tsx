@@ -1,19 +1,17 @@
 import React from "react";
 import Header from "../Header/Header";
 import ProductCard from "../ProductCard/PoductCard";
-import './Flowers.scss';
-import { productCard } from "../../utils/constantsFlowersPage";
-//import icon_home from '../../img/home_icon.svg';
+import '../Flowers/Flowers.scss';
+import { productCardTort } from "../../utils/constantsSweetsPage";
 import ProductContainer from "../ProdictContainer/ProdictContainer";
 
-function Flowers() {
-
+function Sweets() {
     return (
         <>
             <Header />
-            <ProductContainer nameNavigation={'Цветы'} children={
+            <ProductContainer nameNavigation={'Сладости'} children={
                 <>
-                    {productCard.map((item) => {
+                    {productCardTort.map((item) => {
                         return (<ProductCard image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} />)
                     })}
                 </>
@@ -22,4 +20,4 @@ function Flowers() {
     );
 }
 
-export default Flowers;
+export default Sweets;

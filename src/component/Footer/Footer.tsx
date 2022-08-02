@@ -121,7 +121,7 @@ function Footer() {
                             </div>
                             <ul className={buttonL ? 'footer__menu-mobile-ul_open' : "footer__menu-mobile-ul"}>
                                 <li className={buttonL ? 'footer__menu-mobile-li_open' : 'footer__menu-mobile-li'}><Link to={'/'} className="footer__menu-mobile-link">Личный кабинет</Link></li>
-                                <li className={buttonL ? 'footer__menu-mobile-li_open' : 'footer__menu-mobile-li'}><Link to={'/'} className="footer__menu-mobile-link">Корзина</Link></li>
+                                <li className={buttonL ? 'footer__menu-mobile-li_open' : 'footer__menu-mobile-li'}><Link to={'/basket'} className="footer__menu-mobile-link">Корзина</Link></li>
 
                             </ul>
                         </li>

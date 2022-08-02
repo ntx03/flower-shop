@@ -25,6 +25,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from "swiper";
+import { send } from 'emailjs-com';
 
 function Main() {
 
@@ -44,7 +45,7 @@ function Main() {
     const navigationNextRef = React.useRef(null)
 
     // установка ширины м/у карточкками в слайдере
-    function spaceBetweenMonitor() {
+    function monitorSpaceBetween(): number {
         if (width > 1240) {
             return 30;
         }
@@ -58,11 +59,102 @@ function Main() {
         } else return 9;
     }
     // количество слайдов в контейнере
-    function MonitorSlidesPerView() {
+    function monitorSlidesPerView(): number {
         if (width > 1000) {
             return 4;
         } else return 3;
     }
+    const [fileAppend, SetFileAppend] = React.useState(false);
+    const [toSend, setToSend] = React.useState({
+        from_name: '',
+        telephone: '',
+        my_idea: '',
+        file: '',
+    });
+
+    function handleChangeFile(event) {
+        const file = event.target.files[0];
+        if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
+            alert('Разрешены только изображения!');
+            return;
+        }
+        if (file.size > 2 * 1024 * 1024) {
+            alert('Файл должен быть не более 2 МБ!');
+            return;
+        }
+        let formData = new FormData();
+        formData.append('file', file);
+        localStorage.setItem('fileForm', file.name)
+        SetFileAppend(true);
+        setToSend({ ...toSend, [event.target.name]: file.name });
+    }
+    //валидируем имя
+    const [nameValidate, setNameValidate] = React.useState(false);
+    const handleChangeName = (e) => {
+        setToSend({ ...toSend, [e.target.name]: e.target.value });
+        if (e.target.value.length < 2) {
+            setNameValidate(false);
+        } else {
+            setNameValidate(true);
+        }
+    };
+
+    //валидируем телефон
+    const [phoneValidate, setPhoneValidate] = React.useState(false);
+    const handleChangePhone = (e) => {
+        setToSend({ ...toSend, [e.target.name]: e.target.value });
+        if (e.target.value.length < 11) {
+            setPhoneValidate(false);
+        } else {
+            setPhoneValidate(true);
+        }
+    };
+
+    //валидируем поле с текстом
+    const [textValidate, setTextValidate] = React.useState(false);
+    const handleChangeText = (e) => {
+        setToSend({ ...toSend, [e.target.name]: e.target.value });
+        if (e.target.value.length < 6) {
+            setTextValidate(false);
+        } else {
+            setTextValidate(true);
+        }
+    };
+
+    //валидируем кнопку
+    const [validate, setValidate] = React.useState(false);
+    React.useEffect(() => {
+        if (!phoneValidate || !nameValidate || !textValidate) {
+            setValidate(false);
+        } else { setValidate(true); }
+    }, [textValidate, nameValidate, phoneValidate])
+
+    // отправляем форму
+    const onSubmit = (e) => {
+        e.preventDefault();
+        send(
+            'service_zj8r1gp',
+            'template_rnj4ymp',
+            toSend,
+            '9qdGrAcEbgEjFZ2GY'
+        )
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+                SetFileAppend(false);
+                setToSend({
+                    from_name: '',
+                    telephone: '',
+                    my_idea: '',
+                    file: '',
+                })
+                alert('Сообщение успешно отправлено!');
+            })
+            .catch((err) => {
+                console.log('FAILED...', err);
+                alert('Произошла ошибка! Попробуйте еще раз!');
+            });
+
+    };
 
     return (
         <>
@@ -72,16 +164,16 @@ function Main() {
                     <img src={image} className="main__image" alt='изображение с фруктами'></img>
                 </div>
                 <div className="main__card-container">
-                    {mainCardProducts.map((item) => {
-                        return (<CardMainProducts link={item.link} image={item.image} name={item.name} key={item.name} />)
+                    {mainCardProducts.map((item, index) => {
+                        return (<CardMainProducts link={item.link} image={item.image} name={item.name} key={index} />)
                     }
                     )}
                 </div>
                 <h2 className="main__title">Акции</h2>
                 <div className="main__stock">
                     <button className="main__stock-button-left" ref={navigationPrevRef}><img src={button_left} alt="левая кнопка в виде стрелки" /></button>
-                    <Swiper spaceBetween={spaceBetweenMonitor()}
-                        slidesPerView={MonitorSlidesPerView()}
+                    <Swiper spaceBetween={monitorSpaceBetween()}
+                        slidesPerView={monitorSlidesPerView()}
                         modules={[Navigation]}
                         navigation={{
                             prevEl: navigationPrevRef.current,
@@ -97,8 +189,7 @@ function Main() {
                             // eslint-disable-next-line no-param-reassign
                             swiper.params.navigation.nextEl = navigationNextRef.current;
                         }}
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)} >
+                    >
                         <div className="main__stock-container">
                             {cardStock.map((item, index) => {
                                 return (<SwiperSlide><CardStock price={item.price} priseOld={item.priseOld} image={item.image} text={item.text} key={index} /></SwiperSlide>)
@@ -109,17 +200,20 @@ function Main() {
                     <button className="main__stock-button-right" ref={navigationNextRef}><img src={button_right} alt="правая кнопка в виде стрелки" /></button>
                 </div>
                 <h2 className="main__title">Заказать уникальный букет</h2>
-                <form className="main__form">
+                <form className="main__form" onSubmit={onSubmit}>
                     <div className="main__form-container">
                         <div className="main__form-input-container">
-                            <input type="text" className="main__form-input-name" placeholder="Ваше имя" />
-                            <input type="tel" className="main__form-input-phone" placeholder="Ваш телефон" />
-                            <textarea className="main__form-input-idea" placeholder="Ваша идея" />
+                            <input type="text" name='from_name' className={nameValidate ? "main__form-input-name" : "main__form-input-name main__form-input_validate"} value={toSend.from_name} onChange={handleChangeName} placeholder="Ваше имя" />
+                            <input type="tel" name='telephone' className={phoneValidate ? "main__form-input-phone" : "main__form-input-phone main__form-input_validate"} value={toSend.telephone} onChange={handleChangePhone} placeholder="Ваш телефон" />
+                            <textarea className={textValidate ? "main__form-input-idea" : "main__form-input-idea main__form-input_validate"} name='my_idea' value={toSend.my_idea} onChange={handleChangeText} placeholder="Ваша идея" />
                         </div>
+
                         <div className="main__form-button-container">
-                            <button className="main__form-button-file">+ Прикрепить файл</button>
-                            <button className="main__form-button-send">Отправить</button>
+                            <input type="file" name="file" id="input__file" onChange={handleChangeFile} />
+                            <label htmlFor="input__file" className="main__form-button-file">+ Прикрепить файл</label>
+                            <button disabled={validate} className={validate ? "main__form-button-send" : "main__form-button-send main__form-button-send_disabled"} type="submit">Отправить</button>
                         </div>
+                        <p className={fileAppend ? "main__form-input-file-text" : 'main__form-input-file-text_none'}>{`Файл ${localStorage.getItem('fileForm')} успешно добавлен`}</p>
                     </div>
                     <img className='main__form-image' src={stock_flowers} alt="букет цветов" />
                 </form>

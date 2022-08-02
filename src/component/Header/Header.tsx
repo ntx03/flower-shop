@@ -55,19 +55,19 @@ function Header() {
                 </div>
                 <div className="header__lable-icon-container">
                     <Link to={'/'} ><img className='header__lable-icon-mini' src={search} alt="иконка поиска по сайту" /></Link>
-                    <Link to={'/'} ><img className='header__lable-icon-mini' src={basket} alt="иконка корзины" /></Link>
+                    <Link to={'/basket'} ><img className='header__lable-icon-mini' src={basket} alt="иконка корзины" /></Link>
                     <Link to={'/'} ><img className='header__lable-icon-mini' src={heart} alt="иконка лайка" /></Link>
                 </div>
             </div>
             <div className="header__bottom">
                 <Link to='/flowers' className='header__bottom-link'>Цветы</Link>
-                <Link to={'/'} className='header__bottom-link'>Подарки</Link>
-                <Link to={'/'} className='header__bottom-link'>Фруктовые корзины</Link>
-                <Link to={'/'} className='header__bottom-link'>Воздушные шарики</Link>
-                <Link to={'/'} className='header__bottom-link'>Комнатные растения</Link>
-                <Link to={'/'} className='header__bottom-link'>Сладости</Link>
-                <Link to={'/'} className='header__bottom-link'>Услуги</Link>
-                <Link to={'/'} className='header__bottom-link'>Аксессуары</Link>
+                <Link to={'/gifts'} className='header__bottom-link'>Подарки</Link>
+                <Link to={'/frutsBasket'} className='header__bottom-link'>Фруктовые корзины</Link>
+                <Link to={'/balloons'} className='header__bottom-link'>Воздушные шарики</Link>
+                <Link to={'/plants'} className='header__bottom-link'>Комнатные растения</Link>
+                <Link to={'/sweets'} className='header__bottom-link'>Сладости</Link>
+                <Link to={'/services'} className='header__bottom-link'>Услуги</Link>
+                <Link to={'/accessories'} className='header__bottom-link'>Аксессуары</Link>
             </div>
             <div className="header__mobile">
                 <div className="header__mobile-lable-container">
@@ -76,7 +76,7 @@ function Header() {
                 </div>
                 <div className="header__mobile-icon-container">
                     <Link to={'/'} className='header__mobile-icon-link'> <img className='header__mobile-icon' src={search_white} alt="иконка поиска по сайту" /></Link>
-                    <Link to={'/'} className='header__mobile-icon-link'><img className='header__mobile-icon' src={basket_white} alt="иконка корзины" /></Link>
+                    <Link to={'/basket'} className='header__mobile-icon-link'><img className='header__mobile-icon' src={basket_white} alt="иконка корзины" /></Link>
                     <Link to={'/'} className='header__mobile-icon-link'><img className='header__mobile-icon' src={heart_white} alt="иконка лайка" /></Link>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import './BasketOrderRegistration.scss';
 import '../Basket/Basket.scss';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import { orderCard } from '../../utils/constantsBasketPage';
 import OrderProductCard from '../BasketOrderRegistration/OrderProductCard/OrderProductCard';
@@ -12,7 +13,8 @@ import email from '../../img/input_email.svg';
 import people from '../../img/input_peaple.svg';
 import arrow from '../../img/arrow_down.svg';
 import calendar from '../../img/input_calendar.svg';
-import time from '../../img/input_clock.svg';
+// import time from '../../img/input_clock.svg';
+
 
 
 function BasketOrderRegistration() {
@@ -196,7 +198,7 @@ function BasketOrderRegistration() {
                         </div>
                     </div>
                     <div className='order__form-button-box'>
-                        <button className='order__form-button-basket'>Вернуться в корзину</button>
+                        <Link to={'/basket'} className='order__form-button-basket'>Вернуться в корзину</Link>
                         <button className='order__form-button-pay'>Перейти к оплате</button>
                         <p className='order__form-politica-text'>Нажимая кнопку "Перейти к оплате", вы соглашаетесь с правилами <span className='order__form-politica-text-span'>Политики конфиденциальности</span></p>
                     </div>

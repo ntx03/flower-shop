@@ -1,7 +1,10 @@
 import React from "react";
+
 import '../ProductCard/ProductCard.scss';
 
 function ProductCard({ image, text, price, priseOld }) {
+
+
     return (
         <div className="card">
             <div className="card__image-container">
@@ -12,7 +15,7 @@ function ProductCard({ image, text, price, priseOld }) {
                 <p className="card__price">{price}</p>
                 <p className="card__price card__price_gray">{priseOld}</p>
             </div>
-            <button className="card__button">Заказать</button>
+            <button className="card__button" >Заказать</button>
         </div>
     );
 }

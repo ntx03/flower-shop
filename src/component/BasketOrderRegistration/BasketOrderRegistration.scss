@@ -354,14 +354,18 @@
 }
 .order__form-button-basket {
     width: 299px;
-    height: 54px;
+    height: 56px;
+    padding-top: 12px;
+    // padding-bottom: 10px;
     border-radius: 7px;
     border: 2px solid #55b74c;
     background-color: inherit;
+    box-sizing: border-box;
     font-size: 20px;
     line-height: 27px;
     font-weight: 700;
     text-align: center;
+    text-decoration: none;
     //padding: 10px 0px 0px 0px;
     color: #55b74c;
     margin: auto 0px auto 0px;
@@ -477,6 +481,9 @@
     .order__form-politica-text {
         text-align: center;
     }
+    .order__form-button-basket {
+        width: 269px;
+    }
 }
 @media (max-width: 600px) {
     .order__list-title {
@@ -518,7 +525,9 @@
         font-size: 14px;
         line-height: 19px;
     }
-
+    .order__form-button-basket {
+        padding-top: 8px;
+    }
     .order__form-title {
         font-size: 18px;
         line-height: 25px;

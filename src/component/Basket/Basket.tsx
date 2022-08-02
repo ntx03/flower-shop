@@ -5,9 +5,17 @@ import { basketCard } from '../../utils/constantsBasketPage';
 import image from '../../img/image.svg';
 import fotoapparat from '../../img/fotoapparat.svg';
 import BasketCheckBox from './BasketCheckBox/BasketCheckBox';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
-function Basket() {
+function Basket({ basketStoreList }) {
+    const navigate = useNavigate();
+
+    function getOrder() {
+        navigate('/order');
+    }
+
     return (
         <>
             <Header />
@@ -27,7 +35,7 @@ function Basket() {
                     <form className='basket__form'>
                         <div className='basket__products-list'>
                             <>
-                                {basketCard.map((item) => <BasketProductCard image={item.image} text={item.text} width={item.width} height={item.heigth} price={item.price} />)}
+                                {basketStoreList.map((item) => <BasketProductCard image={item.image} text={item.text} width={item.width} height={item.heigth} price={item.price} />)}
                             </>
                         </div>
                         <div className='basket__result-price-container'>
@@ -68,7 +76,7 @@ function Basket() {
                             <BasketCheckBox image={fotoapparat} text={'Фото при получении -'} textSpan={'бесплатно!'} qestionInformation={'вопрос'} />
                             <BasketCheckBox image={fotoapparat} text={'Фото букета до доставки -'} textSpan={'бесплатно!'} qestionInformation={'вопрос'} />
                         </div>
-                        <button className='basket__final-button'>Оформить заказ</button>
+                        <button className='basket__final-button' onClick={getOrder}>Оформить заказ</button>
                     </form>
                 </div>
 
