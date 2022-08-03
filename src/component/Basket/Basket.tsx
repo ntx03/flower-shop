@@ -9,12 +9,24 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-function Basket({ basketStoreList }) {
+function Basket() {
     const navigate = useNavigate();
-
     function getOrder() {
         navigate('/order');
     }
+
+    const [summOrder, setSummOrder] = React.useState(0);
+
+    React.useEffect(() => {
+        const arr = [0];
+        basketCard.forEach((i) => {
+            arr.push(i.price);
+        })
+        const summ = arr.reduce((a, b) => { return a + b });
+        setSummOrder(summ);
+    }, [])
+
+
 
     return (
         <>
@@ -32,10 +44,10 @@ function Basket({ basketStoreList }) {
                         <div className='basket__one basket__two'>3</div>
                         <div className='basket__line'></div>
                     </div>
-                    <form className='basket__form'>
+                    <div className='basket__form'>
                         <div className='basket__products-list'>
                             <>
-                                {basketStoreList.map((item) => <BasketProductCard image={item.image} text={item.text} width={item.width} height={item.heigth} price={item.price} />)}
+                                {basketCard.map((item) => <BasketProductCard summOrder={summOrder} setSummOrder={setSummOrder} key={item.id} id={item.id} image={item.image} text={item.text} width={item.width} height={item.heigth} price={item.price} />)}
                             </>
                         </div>
                         <div className='basket__result-price-container'>
@@ -47,7 +59,7 @@ function Basket({ basketStoreList }) {
                                 </div>
                                 <div className='basket__diskounts-block'>
                                     <div className='basket__diskounts-text-discount-container'>
-                                        <h2 className='basket__diskounts-text-discount'>Вам будет зачислено <span className='basket__diskounts-text-discount-span'>225 рублей</span></h2>
+                                        <h2 className='basket__diskounts-text-discount'>Вам будет зачислено <span className='basket__diskounts-text-discount-span'>{summOrder * 0.03} рублей</span></h2>
                                         <h2 className='basket__diskounts-text-discount'> (<span className='basket__diskounts-text-discount-span'>3%</span> от стоимости заказа)</h2>
                                     </div>
                                     <div className='basket__diskounts-text-discount-percent-container'>
@@ -59,7 +71,7 @@ function Basket({ basketStoreList }) {
                             <div className='basket__result'>
                                 <div className='basket__result-position'>
                                     <p className='basket__result-position-text'>Итого по позициям:</p>
-                                    <p className='basket__result-position-text-rigth'>1 500 ₽</p>
+                                    <p className='basket__result-position-text-rigth'>{summOrder} ₽</p>
                                 </div>
                                 <div className='basket__result-position'>
                                     <p className='basket__result-position-text'>Доставка в г. <span className='basket__result-position-text-span'>Москва</span></p>
@@ -67,7 +79,7 @@ function Basket({ basketStoreList }) {
                                 </div>
                                 <div className='basket__result-position'>
                                     <p className='basket__result-position-text'>Итого:</p>
-                                    <p className='basket__result-position-text-rigth-result'>1 500 ₽</p>
+                                    <p className='basket__result-position-text-rigth-result'>{summOrder} ₽</p>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +89,7 @@ function Basket({ basketStoreList }) {
                             <BasketCheckBox image={fotoapparat} text={'Фото букета до доставки -'} textSpan={'бесплатно!'} qestionInformation={'вопрос'} />
                         </div>
                         <button className='basket__final-button' onClick={getOrder}>Оформить заказ</button>
-                    </form>
+                    </div>
                 </div>
 
             </section>

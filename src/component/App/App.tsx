@@ -23,7 +23,7 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const [basketStoreList, SetBasketStoreList] = React.useState(basketCard);
+  // const [basketStoreList, SetBasketStoreList] = React.useState(basketCard);
 
   // закрываем навигацию по esc
   React.useEffect(() => {
@@ -52,7 +52,7 @@ function App() {
           <Route path='/gifts' element={<Gifts />} />
           <Route path='/services' element={<Services />} />
           <Route path='/accessories' element={<Accessories />} />
-          <Route path='/basket' element={<Basket basketStoreList={basketStoreList} />} />
+          <Route path='/basket' element={<Basket />} />
           <Route path='/order' element={<BasketOrderRegistration />} />
         </Routes>
       </div>

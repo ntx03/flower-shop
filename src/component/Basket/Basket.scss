@@ -130,7 +130,7 @@
 .basket__diskounts-block {
     display: flex;
     margin: 20px auto 0px 0px;
-    gap: 50px;
+    gap: 20px;
 }
 
 .basket__diskounts-text-discount-container {
@@ -140,6 +140,7 @@
 }
 
 .basket__diskounts-text-discount {
+    min-width: 340px;
     font-size: 20px;
     line-height: 27px;
     text-align: start;
@@ -238,17 +239,28 @@
     }
 
     .basket__diskounts-text-discount {
+        min-width: 320px;
         font-size: 18px;
         line-height: 25px;
     }
 }
-@media (max-width: 760px) {
-    .basket {
-        margin: 20px auto 20px auto;
-    }
 
+@media (max-width: 780px) {
     .basket__result-price-container {
         flex-direction: column;
+    }
+
+    .basket__diskounts {
+        width: 93vw;
+    }
+
+    .basket__diskounts-block {
+        margin: 0px auto 0px auto;
+        gap: 50px;
+    }
+
+    .basket__diskounts-header {
+        margin: 0px auto 0px auto;
     }
 
     .basket__result {
@@ -256,17 +268,28 @@
         margin-left: 0px;
     }
 
-    .basket__diskounts {
-        width: 93vw;
+    .basket {
+        margin: 20px auto 20px auto;
+    }
+}
+
+@media (max-width: 550px) {
+    .basket__diskounts-text-discount {
+        min-width: 240px;
     }
 
-    .basket__diskounts-header {
-        margin: 0px auto 0px auto;
+    .basket__diskounts-text-discount {
+        font-size: 14px;
+        line-height: 19px;
     }
-
-    .basket__diskounts-block {
-        margin: 20px auto 0px auto;
-        gap: 50px;
+    .basket__diskounts-text-discount-percent {
+        font-size: 50px;
+        line-height: 80px;
+        &-span {
+            font-size: 25px;
+            line-height: 32px;
+            font-weight: 500;
+        }
     }
 }
 
@@ -280,11 +303,6 @@
         gap: 20px;
     }
 
-    .basket__diskounts-text-discount {
-        font-size: 18px;
-        line-height: 25px;
-    }
-
     .basket__diskounts-header {
         gap: 20px;
     }
@@ -292,20 +310,6 @@
 
 @media (max-width: 430px) {
     .basket__header-text {
-        font-size: 14px;
-        line-height: 19px;
-    }
-    .basket__diskounts-text-discount-percent {
-        font-size: 50px;
-        line-height: 80px;
-        &-span {
-            font-size: 25px;
-            line-height: 32px;
-            font-weight: 500;
-        }
-    }
-
-    .basket__diskounts-text-discount {
         font-size: 14px;
         line-height: 19px;
     }
@@ -321,6 +325,10 @@
     }
 
     .basket__diskounts-header {
+        gap: 10px;
+    }
+
+    .basket__diskounts-block {
         gap: 10px;
     }
 }

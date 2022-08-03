@@ -12,6 +12,7 @@ interface defaultStateShema {
     link: string,
     image: string,
     name: string,
+    id: number
 }
 
 export const mainCardProducts: defaultStateShema[] = [
@@ -19,41 +20,50 @@ export const mainCardProducts: defaultStateShema[] = [
         link: '/flowers',
         image: flowers,
         name: 'цветы',
+        id: Math.round(0.016256866561892513 * 100000000)
     },
     {
         link: '/balloons',
         image: ball,
         name: 'Воздушные шарики',
+        id: Math.round(0.7393343584456822 * 100000000)
     },
     {
         link: '/sweets',
         image: tort,
         name: 'Сладости',
+        id: Math.round(0.38845178462134644 * 100000000)
     },
     {
         link: '/frutsBasket',
         image: fruts,
         name: 'Фруктовые корзины',
+        id: Math.round(
+            0.2028335605393885 * 100000000)
     },
     {
         link: '/plants',
         image: plants,
         name: 'Комнатные растения',
+        id: Math.round(0.1156195654962553 * 100000000)
     },
     {
         link: '/gifts',
         image: gifts,
         name: 'Подарки',
+        id: Math.round(0.9281705689962085 * 100000000)
     },
     {
         link: '/services',
         image: servises,
         name: 'Услуги',
+        id: Math.round(0.012093668440655403 * 100000000)
     },
     {
         link: '/accessories',
         image: accessories,
         name: 'Аксессуары',
+        id: Math.round(0.05837854537571041 * 100000000)
     },
 ]
 

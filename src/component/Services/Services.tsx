@@ -12,7 +12,7 @@ function Services() {
             <ProductContainer nameNavigation={'Услуги'} children={
                 <>
                     {productCardServises.map((item) => {
-                        return (<ProductCard image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} />)
+                        return (<ProductCard image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} id={item.id} key={item.id} />)
                     })}
                 </>
             } />

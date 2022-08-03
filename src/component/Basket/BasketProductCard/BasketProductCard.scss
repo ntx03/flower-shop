@@ -133,7 +133,12 @@
     .basket__products-button-counter {
         font-size: 20px;
         line-height: 27px;
+        border: none;
+        background-color: inherit;
         margin: auto 0 auto 0;
+        max-width: 25px;
+        outline: none;
+        text-align: center;
     }
 
     .basket__products-button-plus {
@@ -152,10 +157,12 @@
 }
 
 .basket__products-price {
+    min-width: 100px;
     font-size: 24px;
     line-height: 33px;
     font-weight: 600;
     margin: auto 0 auto 0;
+    text-align: end;
 }
 .basket__check-box-container {
     width: 1160px;
@@ -250,6 +257,10 @@
         flex-direction: column;
     }
 
+    .basket__products-button-delete {
+        margin: auto 15px auto 0;
+    }
+
     .basket__check-box-item {
         margin: 20px 10px 0px 0px;
         &:first-child {
@@ -278,13 +289,23 @@
     .basket__products-price {
         margin: 90px 0px auto 0px;
     }
+
+    .basket__products-button-delete {
+        margin: auto 30px auto 0;
+    }
 }
-@media (min-width: 525px) {
+@media (max-width: 560px) {
+    .basket__products-button-delete {
+        display: none;
+    }
+}
+@media (min-width: 560px) {
     .basket__products-button-delete-mobile {
         display: none;
     }
 }
-@media (max-width: 525px) {
+
+@media (max-width: 560px) {
     .basket__wrapper {
         justify-content: center;
         margin: 0px auto 0 0;
@@ -295,18 +316,15 @@
         margin: 0px 0 0px 0;
     }
 
-    .basket__products-button-delete {
-        display: none;
-    }
-
     .basket__products-button-group {
         max-width: 200px;
-        margin: 30px 0 0px 40px;
+        margin: 30px 0 0px 20px;
     }
 
     .basket__products-price {
         max-width: 200px;
-        margin: 30px 0 0px 60px;
+        margin: 30px 0 0px -10px;
+        text-align: center;
     }
 
     .basket__products-button-delete-mobile {
