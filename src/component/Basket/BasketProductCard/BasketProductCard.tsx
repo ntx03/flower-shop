@@ -1,12 +1,11 @@
 import React from "react";
-import { escapeLeadingUnderscores } from "typescript";
 import arrow_height from '../../../img/arrow_height.svg';
 import arrow_width from '../../../img/arrow_width.svg';
 import wastebasket from '../../../img/wastebasket.svg';
 import { basketCard } from '../../../utils/constantsBasketPage';
 import './BasketProductCard.scss';
 
-function BasketProductCard({ image, text, width, height, price, id, summOrder, setSummOrder }) {
+function BasketProductCard({ image, text, width, height, price, id, summOrder, setSummOrder, SetBaskedCardState, baskedCardState }) {
 
     const [counter, SetCounter] = React.useState(1);
 
@@ -45,11 +44,12 @@ function BasketProductCard({ image, text, width, height, price, id, summOrder, s
     }
     // удаляем товар
     function deleteProduct() {
-        const item = basketCard.find(item => item.id === id);
-        const object = basketCard.indexOf(item);
+        const item = baskedCardState.find(item => item.id === id);
+        const object = baskedCardState.indexOf(item);
         if (object !== -1) {
-            basketCard.splice(object, 1);
-            console.log(basketCard);
+            baskedCardState.splice(object, 1);
+            console.log(baskedCardState);
+            SetBaskedCardState(state => state.filter(c => c.id !== id))
         } else alert('Error');
     }
 

@@ -11,22 +11,26 @@ import { useNavigate } from 'react-router-dom';
 
 function Basket() {
     const navigate = useNavigate();
+
+    // времянка
     function getOrder() {
         navigate('/order');
     }
 
+    // состояние массива корзины с товарами
+    const [baskedCardState, SetBaskedCardState] = React.useState(basketCard);
+    // суммируем общую цену в корзине
     const [summOrder, setSummOrder] = React.useState(0);
 
+    // суммируем все цены из массива корзины
     React.useEffect(() => {
         const arr = [0];
-        basketCard.forEach((i) => {
+        baskedCardState.forEach((i) => {
             arr.push(i.price);
         })
         const summ = arr.reduce((a, b) => { return a + b });
         setSummOrder(summ);
     }, [])
-
-
 
     return (
         <>
@@ -47,7 +51,7 @@ function Basket() {
                     <div className='basket__form'>
                         <div className='basket__products-list'>
                             <>
-                                {basketCard.map((item) => <BasketProductCard summOrder={summOrder} setSummOrder={setSummOrder} key={item.id} id={item.id} image={item.image} text={item.text} width={item.width} height={item.heigth} price={item.price} />)}
+                                {baskedCardState.map((item) => <BasketProductCard baskedCardState={baskedCardState} SetBaskedCardState={SetBaskedCardState} summOrder={summOrder} setSummOrder={setSummOrder} key={item.id} id={item.id} image={item.image} text={item.text} width={item.width} height={item.heigth} price={item.price} />)}
                             </>
                         </div>
                         <div className='basket__result-price-container'>

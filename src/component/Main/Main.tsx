@@ -16,9 +16,9 @@ import paper from '../../img/paper.svg';
 import imagei from '../../img/image.svg';
 import card from '../../img/plastic_card.svg';
 import truck from '../../img/truck.svg';
-import CardMainProducts from "../CardMainProducts/CardMainProducts";
-import CardStock from "../CardStock/CardStock";
-import InformationItem from "../InformationItem/InformationItem";
+import CardMainProducts from "./CardMainProducts/CardMainProducts";
+import CardStock from "./CardStock/CardStock";
+import InformationItem from "./InformationItem/InformationItem";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles

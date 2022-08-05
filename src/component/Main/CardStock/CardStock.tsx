@@ -1,5 +1,6 @@
 import React from "react";
-import '../Main/Main.scss';
+import '../Main.scss';
+
 
 function CardStock(props) {
     return (

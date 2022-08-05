@@ -5,14 +5,14 @@ import '../Flowers/Flowers.scss';
 import { productCardGifts } from "../../utils/constantsGiftsPage";
 import ProductContainer from "../ProdictContainer/ProdictContainer";
 
-function Gifts() {
+function Gifts({ path }) {
     return (
         <>
             <Header />
             <ProductContainer nameNavigation={'Подарки'} children={
                 <>
                     {productCardGifts.map((item) => {
-                        return (<ProductCard image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} id={item.id} key={item.id} />)
+                        return (<ProductCard path={path} image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} id={item.id} key={item.id} />)
                     })}
                 </>
             } />

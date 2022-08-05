@@ -5,14 +5,14 @@ import '../Flowers/Flowers.scss';
 import { productCardServises } from "../../utils/constantsServicesPage";
 import ProductContainer from "../ProdictContainer/ProdictContainer";
 
-function Services() {
+function Services({ path }) {
     return (
         <>
             <Header />
             <ProductContainer nameNavigation={'Услуги'} children={
                 <>
                     {productCardServises.map((item) => {
-                        return (<ProductCard image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} id={item.id} key={item.id} />)
+                        return (<ProductCard path={path} image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} id={item.id} key={item.id} />)
                     })}
                 </>
             } />

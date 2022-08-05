@@ -6,7 +6,7 @@ import { productCard } from "../../utils/constantsFlowersPage";
 //import icon_home from '../../img/home_icon.svg';
 import ProductContainer from "../ProdictContainer/ProdictContainer";
 
-function Flowers() {
+function Flowers({ path }) {
 
     return (
         <>
@@ -14,7 +14,7 @@ function Flowers() {
             <ProductContainer nameNavigation={'Цветы'} children={
                 <>
                     {productCard.map((item) => {
-                        return (<ProductCard image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} id={item.id} key={item.id} />)
+                        return (<ProductCard path={path} image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} id={item.id} key={item.id} />)
                     })}
                 </>
             } />

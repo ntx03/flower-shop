@@ -5,14 +5,14 @@ import '../Flowers/Flowers.scss';
 import { productCardBalloons } from "../../utils/constantsBalloonsPage";
 import ProductContainer from "../ProdictContainer/ProdictContainer";
 
-function Balloons() {
+function Balloons({ path }) {
     return (
         <>
             <Header />
             <ProductContainer nameNavigation={'Воздушные шары'} children={
                 <>
                     {productCardBalloons.map((item) => {
-                        return (<ProductCard image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} id={item.id} key={item.id} />)
+                        return (<ProductCard path={path} image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} id={item.id} key={item.id} />)
                     })}
                 </>
             } />

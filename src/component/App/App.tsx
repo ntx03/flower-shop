@@ -16,6 +16,7 @@ import RoomPlants from '../RoomPlants/RoomPlants';
 import Gifts from '../Gifts/Gifts';
 import Services from '../Services/Services';
 import Accessories from '../Accessories/Accessories';
+import PopupCardProduct from '../PopupCardProduct/PopupCardProduct';
 
 function App() {
 
@@ -44,16 +45,17 @@ function App() {
       <div className='App__container'>
         <Routes>
           <Route path='/' element={<Main />} />
-          <Route path='/flowers' element={<Flowers />} />
-          <Route path='/balloons' element={<Balloons />} />
-          <Route path='/sweets' element={<Sweets />} />
-          <Route path='/frutsBasket' element={<FrutsBasket />} />
-          <Route path='/plants' element={<RoomPlants />} />
-          <Route path='/gifts' element={<Gifts />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/accessories' element={<Accessories />} />
+          <Route path='/flowers' element={<Flowers path={'/flowers'} />} />
+          <Route path='/balloons' element={<Balloons path={'/balloons'} />} />
+          <Route path='/sweets' element={<Sweets path={'/sweets'} />} />
+          <Route path='/frutsBasket' element={<FrutsBasket path={'/frutsBasket'} />} />
+          <Route path='/plants' element={<RoomPlants path={'/plants'} />} />
+          <Route path='/gifts' element={<Gifts path={'/gifts'} />} />
+          <Route path='/services' element={<Services path={'/services'} />} />
+          <Route path='/accessories' element={<Accessories path={'/accessories'} />} />
           <Route path='/basket' element={<Basket />} />
           <Route path='/order' element={<BasketOrderRegistration />} />
+          <Route path='/:category/:id' element={<PopupCardProduct />} />
         </Routes>
       </div>
       <Footer />
