@@ -15,26 +15,26 @@ function ProductCard({ image, text, price, priseOld, id, path }) {
         })
     })
 
-    function addBasket() {
-        basketCard.push({
-            image: image,
-            text: text,
-            price: price,
-            width: '60 см',
-            heigth: '40 см',
-            id: id,
-        })
-        setOrder(true);
-    }
+    // function addBasket() {
+    //     basketCard.push({
+    //         image: image,
+    //         text: text,
+    //         price: price,
+    //         width: '60 см',
+    //         heigth: '40 см',
+    //         id: id,
+    //     })
+    //     setOrder(true);
+    // }
 
-    function removeBasket() {
-        const item = basketCard.find(item => item.id === id);
-        const object = basketCard.indexOf(item);
-        if (object !== -1) {
-            basketCard.splice(object, 1);
-            setOrder(false);
-        } else alert('Error');
-    }
+    // function removeBasket() {
+    //     const item = basketCard.find(item => item.id === id);
+    //     const object = basketCard.indexOf(item);
+    //     if (object !== -1) {
+    //         basketCard.splice(object, 1);
+    //         setOrder(false);
+    //     } else alert('Error');
+    // }
 
     const navigate = useNavigate();
 

@@ -17,11 +17,11 @@ import Gifts from '../Gifts/Gifts';
 import Services from '../Services/Services';
 import Accessories from '../Accessories/Accessories';
 import PopupCardProduct from '../PopupCardProduct/PopupCardProduct';
+import { falseNavigation } from '../../store/counterSlise';
 
 function App() {
 
   const navigation: boolean = useSelector(state => state['navigation']);
-
   const dispatch = useDispatch();
 
   // const [basketStoreList, SetBasketStoreList] = React.useState(basketCard);
@@ -32,7 +32,7 @@ function App() {
       const closePopupEsc = (evt) => {
         if (evt.key === 'Escape') {
           document.removeEventListener('keydown', closePopupEsc);
-          dispatch({ type: 'navigation_false', payload: false })
+          dispatch(falseNavigation())
         }
       }
       document.addEventListener('keydown', closePopupEsc);

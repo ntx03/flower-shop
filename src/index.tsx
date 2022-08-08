@@ -7,12 +7,13 @@ import { BrowserRouter } from "react-router-dom"
 import { Provider } from 'react-redux';
 //import { createStore, combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit'
-import navigationReducer from '../src/store/store';
+//import navigationReducer from '../src/store/store';
+import { counterSlice } from './store/counterSlise'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 const store = configureStore({
-  reducer: navigationReducer,
+  reducer: counterSlice.reducer,
 });
 
 root.render(

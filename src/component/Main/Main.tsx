@@ -103,7 +103,9 @@ function Main() {
     const [phoneValidate, setPhoneValidate] = React.useState(false);
     const handleChangePhone = (e) => {
         setToSend({ ...toSend, [e.target.name]: e.target.value });
-        if (e.target.value.length < 11) {
+        const re =
+            /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        if (!re.test(String(e.target.value).toLowerCase())) {
             setPhoneValidate(false);
         } else {
             setPhoneValidate(true);
@@ -130,7 +132,15 @@ function Main() {
     }, [textValidate, nameValidate, phoneValidate])
 
     // отправляем форму
+    const onSubmitDisable = (e) => {
+        console.log(validate);
+        e.preventDefault();
+        alert('Форма заполнена неправильно!')
+    }
+
     const onSubmit = (e) => {
+        console.log(validate);
+        alert('fsdf');
         e.preventDefault();
         send(
             'service_zj8r1gp',
@@ -148,13 +158,14 @@ function Main() {
                     file: '',
                 })
                 alert('Сообщение успешно отправлено!');
+                setValidate(false);
             })
             .catch((err) => {
                 console.log('FAILED...', err);
                 alert('Произошла ошибка! Попробуйте еще раз!');
             });
 
-    };
+    }
 
     return (
         <>
@@ -200,7 +211,7 @@ function Main() {
                     <button className="main__stock-button-right" ref={navigationNextRef}><img src={button_right} alt="правая кнопка в виде стрелки" /></button>
                 </div>
                 <h2 className="main__title">Заказать уникальный букет</h2>
-                <form className="main__form" onSubmit={onSubmit}>
+                <form className="main__form" onSubmit={validate ? onSubmit : onSubmitDisable}>
                     <div className="main__form-container">
                         <div className="main__form-input-container">
                             <input type="text" name='from_name' className={nameValidate ? "main__form-input-name" : "main__form-input-name main__form-input_validate"} value={toSend.from_name} onChange={handleChangeName} placeholder="Ваше имя" />
@@ -211,7 +222,7 @@ function Main() {
                         <div className="main__form-button-container">
                             <input type="file" name="file" id="input__file" onChange={handleChangeFile} />
                             <label htmlFor="input__file" className="main__form-button-file">+ Прикрепить файл</label>
-                            <button disabled={validate} className={validate ? "main__form-button-send" : "main__form-button-send main__form-button-send_disabled"} type="submit">Отправить</button>
+                            <button className={validate ? "main__form-button-send" : "main__form-button-send main__form-button-send_disabled"} type="submit">Отправить</button>
                         </div>
                         <p className={fileAppend ? "main__form-input-file-text" : 'main__form-input-file-text_none'}>{`Файл ${localStorage.getItem('fileForm')} успешно добавлен`}</p>
                     </div>

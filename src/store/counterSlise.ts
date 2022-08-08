@@ -10,7 +10,7 @@ const initialState: CounterState = {
     navigation: false
 }
 
-const counterSlice = createSlice({
+export const counterSlice = createSlice({
     name: 'navigation',
     initialState,
 
@@ -29,5 +29,3 @@ const counterSlice = createSlice({
 })
 
 export const { falseNavigation, trueNavigation } = counterSlice.actions
-
-export default counterSlice.reducer

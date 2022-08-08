@@ -14,7 +14,7 @@ import seven from '../../img/24_7.svg';
 import search_white from '../../img/search_wait.svg';
 import basket_white from '../../img/basket_wait.svg';
 import heart_white from '../../img/heart_wait.svg';
-
+import { trueNavigation } from '../../store/counterSlise';
 
 function Header() {
 
@@ -71,7 +71,7 @@ function Header() {
             </div>
             <div className="header__mobile">
                 <div className="header__mobile-lable-container">
-                    <button className="header__mobile-button" onClick={() => dispatch({ type: 'navigation_true', payload: true })}> <img className='header__mobile-burger' src={burger} alt="иконка меню" /></button>
+                    <button className="header__mobile-button" onClick={() => dispatch(trueNavigation())}> <img className='header__mobile-burger' src={burger} alt="иконка меню" /></button>
                     <img className="header__mobile-lable" src={mobile_lable} alt="лэйбл флористмэн" />
                 </div>
                 <div className="header__mobile-icon-container">
