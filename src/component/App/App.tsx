@@ -5,7 +5,7 @@ import Footer from '../Footer/Footer';
 import Flowers from '../Flowers/Flowers';
 import Main from '../Main/Main';
 import './App.scss';
-import { useSelector, useDispatch } from 'react-redux'
+//import { useSelector, useDispatch } from 'react-redux'
 import Basket from '../Basket/Basket';
 import BasketOrderRegistration from '../BasketOrderRegistration/BasketOrderRagistration';
 import { basketCard } from '../../utils/constantsBasketPage';
@@ -18,12 +18,13 @@ import Services from '../Services/Services';
 import Accessories from '../Accessories/Accessories';
 import PopupCardProduct from '../PopupCardProduct/PopupCardProduct';
 import { falseNavigation } from '../../store/counterSlise';
-
+import { test } from '../../store/testState';
+import { useAppSelector, useAppDispatch } from '../../../src/hooks'
 function App() {
 
-  const navigation: boolean = useSelector(state => state['navigation']);
-  const dispatch = useDispatch();
+  const navigation: boolean = useAppSelector(state => state.counter.navigation);
 
+  const dispatch = useAppDispatch();
   // const [basketStoreList, SetBasketStoreList] = React.useState(basketCard);
 
   // закрываем навигацию по esc

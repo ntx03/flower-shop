@@ -1,10 +1,12 @@
 import React from "react";
-
 import '../ProductCard/ProductCard.scss';
 import { basketCard } from '../../utils/constantsBasketPage';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useAppSelector, useAppDispatch } from '../../../src/hooks';
+import { setPopupCardState } from '../../store/productCardState';
 
-function ProductCard({ image, text, price, priseOld, id, path }) {
+
+function ProductCard({ width, height, image, text, price, priseOld, id, path, image2, image3, minProduct, color, otherServices, reviews }) {
     const [order, setOrder] = React.useState(false);
 
     React.useEffect(() => {
@@ -14,6 +16,8 @@ function ProductCard({ image, text, price, priseOld, id, path }) {
             }
         })
     })
+    const dispatch = useAppDispatch();
+
 
     // function addBasket() {
     //     basketCard.push({
@@ -41,6 +45,24 @@ function ProductCard({ image, text, price, priseOld, id, path }) {
 
     // времянка
     function getOrder() {
+        const allProps = {
+            path: path,
+            image: image,
+            image2: image2,
+            image3: image3,
+            width: width,
+            height: height,
+            price: price,
+            priceOld: priseOld,
+            id: id,
+            minProduct: minProduct,
+            color: color,
+            reviews: reviews,
+            otherServices: otherServices,
+            text: text
+        }
+        dispatch(setPopupCardState(allProps))
+
         navigate(`${path}/${id}`);
     }
 

@@ -1,13 +1,11 @@
 import Header from "../Header/Header";
 import React from "react";
 import './PopupCardProduct.scss';
-import { Link, useParams } from 'react-router-dom'; // импортируем хук
+import { Link } from 'react-router-dom'; // импортируем хук
 import arrow_height from '../../img/arrow_height.svg';
 import arrow_width from '../../img/arrow_width.svg';
 import button_left from '../../img/button_left.svg';
 import button_right from '../../img/button_right.svg';
-import flowers from '../../img/flowers.svg';
-import basket from '../../img/plants.svg';
 import arrow_back from '../../img/arrow_back.svg';
 import orange_sun from '../../img/orange_sun.svg';
 import green_sun from '../../img/green_sun.svg';
@@ -24,11 +22,9 @@ import "swiper/css/effect-fade";
 import { EffectFade, Navigation, Pagination } from "swiper";
 import WhyUsCard from "./WhyUsCard/WhyUsCard";
 import ReviewsCard from "./ReviewsCard/ReviewsCard";
-
+import { useAppSelector } from '../../../src/hooks'
 
 function PopupCardProduct() {
-    let { id, category } = useParams(); // получаем доступ к параметру URL
-
     const [selectQuantity, setSelectQuantity] = React.useState('ds,bhtnt');
     const onChangeSelectQuantity = (e) => {
         setSelectQuantity(e.target.value)
@@ -73,45 +69,71 @@ function PopupCardProduct() {
         } else if (width > 500) {
             return 3;
         } else return 2;
+    }
+    // берем данные товара, который выбрал покупатель
+    const popupCardState = useAppSelector(state => state.product.popupCardState);
 
+    const [image, SetImage] = React.useState(popupCardState.image);
+
+    function showImage(e) {
+        SetImage(e.target.src)
     }
 
+    // function addBasket() {
+    //     basketCard.push({
+    //         image: image,
+    //         text: text,
+    //         price: price,
+    //         width: '60 см',
+    //         heigth: '40 см',
+    //         id: id,
+    //     })
+    //     setOrder(true);
+    // }
 
+    // function removeBasket() {
+    //     const item = basketCard.find(item => item.id === id);
+    //     const object = basketCard.indexOf(item);
+    //     if (object !== -1) {
+    //         basketCard.splice(object, 1);
+    //         setOrder(false);
+    //     } else alert('Error');
+    // }
 
     return (
         <>
             <Header />
             <div className="goBack">
-                <Link to={'/flowers'} className="goBack__image" ><img src={arrow_back} alt="стрелка назад" /></Link>
+                <Link to={popupCardState.path} className="goBack__image" ><img src={arrow_back} alt="стрелка назад" /></Link>
                 <p className="goBack__text">Обратно в магазин</p>
             </div>
             <section className="card-product">
                 <div className="card-product-container">
                     <div className="card-product__image-part">
                         <div className="card-product__image-container">
-                            <img src={flowers} className="card-product__image" alt='изображение с товаром' />
+                            <img src={image} className="card-product__image" alt='изображение с товаром' />
                         </div>
                         <div className="card-product__image-container-group">
                             <div className="card-product__image-container-mini">
-                                <img src={flowers} className="card-product__image-mini" alt='изображение с товаром' />
+                                <img src={popupCardState.image} className="card-product__image-mini" alt='изображение с товаром' onClick={showImage} />
                             </div>
                             <div className="card-product__image-container-mini">
-                                <img src={flowers} className="card-product__image-mini" alt='изображение с товаром' />
+                                <img src={popupCardState.image2} className="card-product__image-mini" alt='изображение с товаром' onClick={showImage} />
                             </div>
                             <div className="card-product__image-container-mini">
-                                <img src={flowers} className="card-product__image-mini" alt='изображение с товаром' />
+                                <img src={popupCardState.image3} className="card-product__image-mini" alt='изображение с товаром' onClick={showImage} />
                             </div>
                         </div>
                         <div className='basket__product-text-box'>
                             <p className='basket__product-text'>Размер:</p>
                             <div className='basket__product-width-container'>
-                                <p className='basket__product-text'>60 cм</p>
+                                <p className='basket__product-text'>{popupCardState.width} cм</p>
                                 <img src={arrow_width} alt='стрелка_ширины' className='basket__product-width-image' />
                             </div>
                             <div className='basket__product-height-container'>
 
                                 <img src={arrow_height} alt='стрелка_высоты' className='basket__product-height-image' />
-                                <p className='basket__product-text basket__product-text-heigth'>60 cм</p>
+                                <p className='basket__product-text basket__product-text-heigth'>{popupCardState.height} cм</p>
                             </div>
                         </div>
                     </div>
@@ -119,7 +141,7 @@ function PopupCardProduct() {
                         <button className="card-product-button-left" ref={navigationPrev}><img src={button_left} alt="левая кнопка в виде стрелки" /></button>
                         <Swiper
                             spaceBetween={0}
-                            // slidesPerView={1}
+                            slidesPerView={1}
                             effect={"fade"}
                             pagination={{
                                 clickable: true,
@@ -143,47 +165,53 @@ function PopupCardProduct() {
 
                         >
                             <SwiperSlide>  <div className="card-product__image-container-swiper">
-                                <img src={flowers} className="card-product__image-swiper" alt='изображение с товаром' />
+                                <img src={popupCardState.image} className="card-product__image-swiper" alt='изображение с товаром' />
                             </div> </SwiperSlide>
                             <SwiperSlide>  <div className="card-product__image-container-swiper">
-                                <img src={basket} className="card-product__image-swiper" alt='изображение с товаром' />
+                                <img src={popupCardState.image2} className="card-product__image-swiper" alt='изображение с товаром' />
                             </div> </SwiperSlide>
                             <SwiperSlide>  <div className="card-product__image-container-swiper">
-                                <img src={flowers} className="card-product__image-swiper" alt='изображение с товаром' />
+                                <img src={popupCardState.image3} className="card-product__image-swiper" alt='изображение с товаром' />
                             </div> </SwiperSlide>
                         </Swiper>
                         <button className="card-product-button-right" ref={navigationNext}><img src={button_right} alt="правая кнопка в виде стрелки" /></button>
                     </div>
 
                     <div className="card-product__information-part">
-                        <h2 className="card-product__title">Корзина фиолетовых роз</h2>
+                        <h2 className="card-product__title">{popupCardState.text}</h2>
                         <div className="card-product__price-container">
-                            <p className="card-product__price">1500 p</p>
-                            <p className="card-product__price_gray">2500 p</p>
+                            <p className="card-product__price">{popupCardState.price} p</p>
+                            <p className="card-product__price_gray">{popupCardState.priceOld}</p>
                         </div>
                         <div className="card-product__select-container">
                             <p className="card-product__quantity-title">Количество</p>
                             <select className='select-quantity' value={selectQuantity || ''} onChange={onChangeSelectQuantity}>
-                                <option value="1500">15 шт - 1500 руб.</option>
-                                <option value="3000">30 шт - 3000 руб.</option>
-                                <option value="4500">45 шт - 4500 руб.</option>
-                                <option value="6000">60 шт - 6000 руб.</option>
+                                <option value={popupCardState.minProduct}>{popupCardState.minProduct} шт - {popupCardState.price} руб.</option>
+                                <option value={popupCardState.minProduct * 2}>{popupCardState.minProduct * 2} шт - {popupCardState.price * 2} руб.</option>
+                                <option value={popupCardState.minProduct * 3}>{popupCardState.minProduct * 3} шт - {popupCardState.price * 3} руб.</option>
+                                <option value={popupCardState.minProduct * 4}>{popupCardState.minProduct * 4} шт - {popupCardState.price * 4} руб.</option>
                             </select>
                         </div>
                         <div className="card-product__select-container">
                             <p className="card-product__color-title">Цвет</p>
                             <select className='select-quantity' value={selectColor || ''} onChange={onChangeSelectColor}>
-                                <option value="Фиолетовый">Фиолетовый</option>
+                                {popupCardState.color.map((i) => {
+                                    return <option value={i}>{i}</option>
+                                })}
+                                {/* <option value={popupCardState.color}>{popupCardState.color}</option>
                                 <option value="Красный">Красный</option>
-                                <option value="Розовый">Розовый</option>
+                                <option value="Розовый">Розовый</option> */}
                             </select>
                         </div>
                         <div className="card-product__select-container">
                             <p className="card-product__decoration-title">Оформление</p>
                             <select className='select-decoration' value={selectDecoration || ''} onChange={onChangeSelectDecoration}>
-                                <option value="0">Прозрачная упаковка - 0 руб.</option>
+                                {popupCardState.otherServices.map((i) => {
+                                    return <option value={i.price}>{i.text}</option>
+                                })}
+                                {/* <option value="0">Прозрачная упаковка - 0 руб.</option>
                                 <option value="100">Не прозрачная  упаковка - 100 руб.</option>
-                                <option value="500">Красивая  упаковка - 500 руб.</option>
+                                <option value="500">Красивая  упаковка - 500 руб.</option> */}
                             </select>
                         </div>
                         <button className="card-product__button">Добавить в корзину</button>
@@ -192,7 +220,7 @@ function PopupCardProduct() {
 
                 </div>
                 <div className='card-product__reviews-header-container'>
-                    <h3 className="card-product__reviews-header">Отзывы (3)</h3>
+                    <h3 className="card-product__reviews-header">Отзывы ({popupCardState.reviews.length})</h3>
                     <button className="card-product__reviews-header-button">Написать отзыв</button>
                 </div>
                 <div className="card-product__reviews">
@@ -218,9 +246,10 @@ function PopupCardProduct() {
                             swiper.params.navigation.nextEl = navigationNextRef.current;
                         }}
                     >
-                        <SwiperSlide><ReviewsCard title={'Алексей'} text={'Товар отличного качества!'} /></SwiperSlide>
-                        <SwiperSlide><ReviewsCard title={'Олеся'} text={'Отличный букет.Рекомендую!'} /></SwiperSlide>
-                        <SwiperSlide><ReviewsCard title={'Паша'} text={'Доставили очень быстро!Доставили очень быстро!Доставили очень быстро!Доставили очень быстро!Доставили очень быстро!Доставили очень быстро!Доставили очень быстро!Доставили очень быстро!Доставили очень быстро!'} /></SwiperSlide>
+                        {popupCardState.reviews.map((i, index) => {
+                            return <SwiperSlide><ReviewsCard title={i.name} text={i.text} key={index} /></SwiperSlide>
+                        })}
+
                     </Swiper >
                     <button className="card-product-button-right" ref={navigationNextRef}><img src={button_right} alt="правая кнопка в виде стрелки" /></button>
                 </div >

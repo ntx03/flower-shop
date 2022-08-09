@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 // Define a type for the slice state
 interface CounterState {
@@ -10,7 +10,7 @@ const initialState: CounterState = {
     navigation: false
 }
 
-export const counterSlice = createSlice({
+const counterSlice = createSlice({
     name: 'navigation',
     initialState,
 
@@ -29,3 +29,4 @@ export const counterSlice = createSlice({
 })
 
 export const { falseNavigation, trueNavigation } = counterSlice.actions
+export default counterSlice.reducer;

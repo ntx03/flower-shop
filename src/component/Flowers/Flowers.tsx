@@ -14,7 +14,7 @@ function Flowers({ path }) {
             <ProductContainer nameNavigation={'Цветы'} children={
                 <>
                     {productCard.map((item) => {
-                        return (<ProductCard path={path} image={item.image} text={item.text} price={item.price} priseOld={item.priseOld} id={item.id} key={item.id} />)
+                        return (<ProductCard width={item.width} height={item.height} path={path} image={item.image} image2={item.image2} image3={item.image3} text={item.text} minProduct={item.minProduct} color={item.color} reviews={item.reviews} otherServices={item.otherServices} price={item.price} priseOld={item.priseOld} id={item.id} key={item.id} />)
                     })}
                 </>
             } />

@@ -233,38 +233,46 @@ function Main() {
                     <InformationItem
                         title={'Качество'}
                         text={'На Рыжском рынке предоставлены оптовые продавцы, которые торгуют самыми свежими цветами'}
-                        image={star} />
+                        image={star}
+                        key={'1'} />
                     <InformationItem
                         title={'Фото-отчет'}
                         text={'Перед доставкой мы отправляем Вам фотографию готового букета'}
-                        image={fotoapparat} />
+                        image={fotoapparat}
+                        key={'2'} />
                     <InformationItem
                         title={'Цена'}
                         text={'Да, у нас самые дешевые цены в онлайне! В 2-3 раза дешевле от обычных!'}
-                        image={wallet} />
+                        image={wallet}
+                        key={'3'} />
                     <InformationItem
                         title={'Время'}
                         text={'Мы доставляем от 2-х часов! (Реальное время, а не маркетинговый ход)  И принимаем заказы 24/7'}
-                        image={watch} />
+                        image={watch}
+                        key={'4'} />
                 </div>
                 <h2 className="main__title">Как оформить заказ?</h2>
                 <div className="main__information main__information_end">
                     <InformationItem
                         title={'Оставьте заявку на сайте'}
                         text={'Наш сотрудник свяжется с Вами для уточнения деталей вашего заказа'}
-                        image={paper} />
+                        image={paper}
+                        key={'5'} />
                     <InformationItem
                         title={'Фото-отчет'}
                         text={'Перед доставкой мы пришлем фотографию готового Вашего букета, чтобы Вы убедились в его качестве. После утверждения вами заказа, курьер поедет по адресу'}
-                        image={imagei} />
+                        image={imagei}
+                        key={'6'} />
                     <InformationItem
                         title={'Способ оплаты'}
                         text={'Наличными либо безналичным расчетом банковской картой после доставки'}
-                        image={card} />
+                        image={card}
+                        key={'7'} />
                     <InformationItem
                         title={'Доставка'}
                         text={'Возьмём на себя все заботы по созданию, оформлению и доставке корпоративных букетов в обычные  и праздничные дни за разумные деньги'}
-                        image={truck} />
+                        image={truck}
+                        key={'8'} />
                 </div>
             </section>
         </>
