@@ -3,7 +3,7 @@ import arrow_height from '../../../img/arrow_height.svg';
 import arrow_width from '../../../img/arrow_width.svg';
 import wastebasket from '../../../img/wastebasket.svg';
 import { useAppSelector, useAppDispatch } from '../../../../src/hooks';
-import { removeOrderBasket, changeCounter } from '../../../store/basketStateSlise';
+import { removeOrderBasket, changeCounterState } from '../../../store/basketStateSlise';
 import './BasketProductCard.scss';
 
 function BasketProductCard({ image, text, width, height, price, id, summOrder, setSummOrder, counterState }) {
@@ -39,11 +39,11 @@ function BasketProductCard({ image, text, width, height, price, id, summOrder, s
     function moreOrder() {
         if (counter >= 50) {
             SetCounter(50);
-            dispatch(changeCounter(objectCounter))
+            dispatch(changeCounterState(objectCounter))
         } else {
             setSummOrder(summOrder + price)
             SetCounter(counter + 1);
-            dispatch(changeCounter(objectCounter))
+            dispatch(changeCounterState(objectCounter))
         }
     }
     // уменьшаем количество товаров

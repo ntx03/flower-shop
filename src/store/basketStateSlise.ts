@@ -40,7 +40,7 @@ const basketStateSlice = createSlice({
             state.basketState.splice(action.payload, 1);
         },
 
-        changeCounter(state, action) {
+        changeCounterState(state, action) {
             const item = state.basketState.find(item => item.id === action.payload.id);
             console.log(item);
             item.counter = action.payload.counter
@@ -49,5 +49,5 @@ const basketStateSlice = createSlice({
 })
 
 export const { setBasketState, removeOrderBasket } = basketStateSlice.actions;
-export const { changeCounter } = basketStateSlice.actions;
+export const { changeCounterState } = basketStateSlice.actions;
 export default basketStateSlice.reducer;
