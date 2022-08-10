@@ -14,9 +14,14 @@ function BasketProductCard({ image, text, width, height, price, id, summOrder, s
     // счтечик количества товаров
     const [counter, SetCounter] = React.useState(counterState);
 
-    const objectCounter = {
+    const objectCounterSumm = {
         id: id,
-        counter: counter
+        counter: counter + 1
+    }
+
+    const objectCounterMinus = {
+        id: id,
+        counter: counter < 2 ? counter : counter - 1
     }
     // меняем цену в зависимости от состояния counter
     function changeCounter(e) {
@@ -39,20 +44,22 @@ function BasketProductCard({ image, text, width, height, price, id, summOrder, s
     function moreOrder() {
         if (counter >= 50) {
             SetCounter(50);
-            dispatch(changeCounterState(objectCounter))
+            dispatch(changeCounterState(objectCounterSumm))
         } else {
             setSummOrder(summOrder + price)
             SetCounter(counter + 1);
-            dispatch(changeCounterState(objectCounter))
+            dispatch(changeCounterState(objectCounterSumm))
         }
     }
     // уменьшаем количество товаров
     function lessOrder() {
         if (counter <= 1) {
             SetCounter(1)
+            dispatch(changeCounterState(objectCounterMinus))
         } else {
             setSummOrder(summOrder - price)
             SetCounter(counter - 1);
+            dispatch(changeCounterState(objectCounterMinus))
         }
     }
 

@@ -6,7 +6,6 @@ import { setPopupCardState } from '../../store/productCardState';
 
 
 function ProductCard({ width, height, image, text, price, priseOld, id, path, image2, image3, minProduct, color, otherServices, reviews }) {
-    const [order, setOrder] = React.useState(false);
 
     const dispatch = useAppDispatch();
 
@@ -45,7 +44,7 @@ function ProductCard({ width, height, image, text, price, priseOld, id, path, im
                 <p className="card__price">{price}</p>
                 <p className="card__price card__price_gray">{priseOld}</p>
             </div>
-            <button className={order ? "card__button card__button-order" : "card__button"} onClick={getOrder}>Заказать</button>
+            <button className="card__button" onClick={getOrder}>Заказать</button>
         </div>
     );
 }

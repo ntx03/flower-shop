@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './Header.scss';
 import { Link } from 'react-router-dom';
 import icon from '../../img/icon_office.svg';
@@ -14,12 +14,20 @@ import seven from '../../img/24_7.svg';
 import search_white from '../../img/search_wait.svg';
 import basket_white from '../../img/basket_wait.svg';
 import heart_white from '../../img/heart_wait.svg';
+import { useAppSelector } from "../../hooks";
 import { trueNavigation } from '../../store/counterSlise';
 
 function Header() {
-
+    const basketState = useAppSelector(state => state.basket.basketState);
     const dispatch = useDispatch();
+    const [productBasketLength, setProductBasketLength] = React.useState(false);
+    React.useEffect(() => {
+        basketState.length < 1 ? setProductBasketLength(false) : setProductBasketLength(true);
+    }, [basketState.length])
 
+    const showProductBasketSumm = () => {
+        return basketState.length > 99 ? 99 : basketState.length;
+    }
     return (
         <section className="header">
             <div className="header__up">
@@ -55,7 +63,7 @@ function Header() {
                 </div>
                 <div className="header__lable-icon-container">
                     <Link to={'/'} ><img className='header__lable-icon-mini' src={search} alt="иконка поиска по сайту" /></Link>
-                    <Link to={'/basket'} ><img className='header__lable-icon-mini' src={basket} alt="иконка корзины" /></Link>
+                    <Link to={'/basket'} className='header__lable-icon-mini-container'><p className={productBasketLength ? "header__lable-icon-mini-text" : "header__lable-icon-mini-text_none"}>{showProductBasketSumm()}</p><img className='header__lable-icon-mini' src={basket} alt="иконка корзины" /></Link>
                     <Link to={'/'} ><img className='header__lable-icon-mini' src={heart} alt="иконка лайка" /></Link>
                 </div>
             </div>

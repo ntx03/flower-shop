@@ -60,7 +60,7 @@ function Basket() {
                                 </div>
                                 <div className='basket__diskounts-block'>
                                     <div className='basket__diskounts-text-discount-container'>
-                                        <h2 className='basket__diskounts-text-discount'>Вам будет зачислено <span className='basket__diskounts-text-discount-span'>{summOrder * 0.03} рублей</span></h2>
+                                        <h2 className='basket__diskounts-text-discount'>Вам будет зачислено <span className='basket__diskounts-text-discount-span'>{Math.round(summOrder * 0.03)} рублей</span></h2>
                                         <h2 className='basket__diskounts-text-discount'> (<span className='basket__diskounts-text-discount-span'>3%</span> от стоимости заказа)</h2>
                                     </div>
                                     <div className='basket__diskounts-text-discount-percent-container'>

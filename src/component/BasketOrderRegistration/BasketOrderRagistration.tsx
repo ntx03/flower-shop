@@ -116,7 +116,7 @@ function BasketOrderRegistration() {
                 <div className='order__list'>
                     <p className='order__list-title'><span className='order__list-title-span'>ваш заказ</span> в г.Москва с доставкой на сумму <span className='order__list-title-span'>{summOrder}₽</span> </p>
                     <>
-                        {basketState.map((item) => <OrderProductCard image={item.image} text={item.text} price={item.price} />)}
+                        {basketState.map((item) => <OrderProductCard image={item.image} text={item.text} price={item.price} counter={item.counter} />)}
                     </>
                 </div>
                 <div className='order__check-box-container'>

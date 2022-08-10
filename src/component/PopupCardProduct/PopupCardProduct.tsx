@@ -113,17 +113,8 @@ function PopupCardProduct() {
         }
         console.log(data);
         dispatch(setBasketState(data))
-
+        //alert(`Товар ${popupCardState.text},  на сумму ${(popupCardState.price + Number(selectDecoration))} рублей, успешно добавлен в корзину!`)
     }
-
-    // function removeBasket() {
-    //     const item = basketCard.find(item => item.id === id);
-    //     const object = basketCard.indexOf(item);
-    //     if (object !== -1) {
-    //         basketCard.splice(object, 1);
-    //         setOrder(false);
-    //     } else alert('Error');
-    // }
 
     return (
         <>
