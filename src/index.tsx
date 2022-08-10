@@ -3,28 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './component/App/App';
 import reportWebVitals from './reportWebVitals.js';
-import { BrowserRouter, Route } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 import { Provider } from 'react-redux';
-//import { createStore, combineReducers } from 'redux';
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
-//import navigationReducer from '../src/store/store';
+import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './store/counterSlise'
 import productCardStateReduser from './store/productCardState';
+import basketStateSlice from './store/basketStateSlise';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-//const rootReducer = combineReducers({})
-//export type RootState = ReturnType<typeof rootReducer>
-// const rootReducer = combineReducers(
-//   {
-//     navigation: counterSlice,
-//     test: test
 
-//   }
-// )
-const store = configureStore({
+const store: any = configureStore({
   reducer: {
     counter: counterReducer,
-    product: productCardStateReduser
+    product: productCardStateReduser,
+    basket: basketStateSlice
   },
 });
 

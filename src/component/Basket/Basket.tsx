@@ -1,12 +1,9 @@
 import Header from '../Header/Header';
 import './Basket.scss';
 import BasketProductCard from './BasketProductCard/BasketProductCard';
-import { basketCard } from '../../utils/constantsBasketPage';
-import image from '../../img/image.svg';
-import fotoapparat from '../../img/fotoapparat.svg';
-import BasketCheckBox from './BasketCheckBox/BasketCheckBox';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAppSelector, useAppDispatch } from '../../../src/hooks';
 
 
 function Basket() {
@@ -14,23 +11,23 @@ function Basket() {
 
     // времянка
     function getOrder() {
-        navigate('/order');
+        basketState.length < 1 ? alert('Для оформления заказа вам нужно выбрать товар!') : navigate('/order');
     }
+    // берем данные товара, который выбрал покупатель
+    const basketState = useAppSelector(state => state.basket.basketState);
 
-    // состояние массива корзины с товарами
-    const [baskedCardState, SetBaskedCardState] = React.useState(basketCard);
     // суммируем общую цену в корзине
     const [summOrder, setSummOrder] = React.useState(0);
 
     // суммируем все цены из массива корзины
     React.useEffect(() => {
         const arr = [0];
-        baskedCardState.forEach((i) => {
-            arr.push(i.price);
+        basketState.forEach((i) => {
+            arr.push(i.price * i.counter);
         })
         const summ = arr.reduce((a, b) => { return a + b });
         setSummOrder(summ);
-    }, [])
+    }, [basketState])
 
     return (
         <>
@@ -51,7 +48,7 @@ function Basket() {
                     <div className='basket__form'>
                         <div className='basket__products-list'>
                             <>
-                                {baskedCardState.map((item) => <BasketProductCard baskedCardState={baskedCardState} SetBaskedCardState={SetBaskedCardState} summOrder={summOrder} setSummOrder={setSummOrder} key={item.id} id={item.id} image={item.image} text={item.text} width={item.width} height={item.heigth} price={item.price} />)}
+                                {basketState.map((item) => <BasketProductCard counterState={Number(item.counter)} summOrder={summOrder} setSummOrder={setSummOrder} key={item.id} id={item.id} image={item.image} text={item.text} width={item.width} height={item.height} price={item.price} />)}
                             </>
                         </div>
                         <div className='basket__result-price-container'>
@@ -86,11 +83,6 @@ function Basket() {
                                     <p className='basket__result-position-text-rigth-result'>{summOrder} ₽</p>
                                 </div>
                             </div>
-                        </div>
-                        <div className='basket__check-box-container'>
-                            <BasketCheckBox image={image} text={'Добавьте открытку -'} textSpan={'бесплатно!'} qestionInformation={'вопрос'} />
-                            <BasketCheckBox image={fotoapparat} text={'Фото при получении -'} textSpan={'бесплатно!'} qestionInformation={'вопрос'} />
-                            <BasketCheckBox image={fotoapparat} text={'Фото букета до доставки -'} textSpan={'бесплатно!'} qestionInformation={'вопрос'} />
                         </div>
                         <button className='basket__final-button' onClick={getOrder}>Оформить заказ</button>
                     </div>

@@ -2,14 +2,25 @@ import React from "react";
 import arrow_height from '../../../img/arrow_height.svg';
 import arrow_width from '../../../img/arrow_width.svg';
 import wastebasket from '../../../img/wastebasket.svg';
-import { basketCard } from '../../../utils/constantsBasketPage';
+import { useAppSelector, useAppDispatch } from '../../../../src/hooks';
+import { removeOrderBasket, changeCounter } from '../../../store/basketStateSlise';
 import './BasketProductCard.scss';
 
-function BasketProductCard({ image, text, width, height, price, id, summOrder, setSummOrder, SetBaskedCardState, baskedCardState }) {
+function BasketProductCard({ image, text, width, height, price, id, summOrder, setSummOrder, counterState }) {
+    const dispatch = useAppDispatch();
+    // берем данные товара, который выбрал покупатель
+    const basketState = useAppSelector(state => state.basket.basketState);
+    console.log(basketState);
+    // счтечик количества товаров
+    const [counter, SetCounter] = React.useState(counterState);
 
-    const [counter, SetCounter] = React.useState(1);
-
+    const objectCounter = {
+        id: id,
+        counter: counter
+    }
+    // меняем цену в зависимости от состояния counter
     function changeCounter(e) {
+
         if (counter < e.target.value) {
             setSummOrder(summOrder + price * Number(e.target.value) - price)
         } else if (counter > e.target.value) { setSummOrder(summOrder - price * Number(e.target.value)) }
@@ -28,9 +39,11 @@ function BasketProductCard({ image, text, width, height, price, id, summOrder, s
     function moreOrder() {
         if (counter >= 50) {
             SetCounter(50);
+            dispatch(changeCounter(objectCounter))
         } else {
             setSummOrder(summOrder + price)
             SetCounter(counter + 1);
+            dispatch(changeCounter(objectCounter))
         }
     }
     // уменьшаем количество товаров
@@ -42,14 +55,17 @@ function BasketProductCard({ image, text, width, height, price, id, summOrder, s
             SetCounter(counter - 1);
         }
     }
+
+
+
     // удаляем товар
     function deleteProduct() {
-        const item = baskedCardState.find(item => item.id === id);
-        const object = baskedCardState.indexOf(item);
+        const item = basketState.find(item => item.id === id);
+        console.log(item);
+        const object = basketState.indexOf(item);
+        console.log(object);
         if (object !== -1) {
-            baskedCardState.splice(object, 1);
-            console.log(baskedCardState);
-            SetBaskedCardState(state => state.filter(c => c.id !== id))
+            dispatch(removeOrderBasket(object));
         } else alert('Error');
     }
 

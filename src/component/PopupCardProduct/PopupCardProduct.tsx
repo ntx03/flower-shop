@@ -22,20 +22,25 @@ import "swiper/css/effect-fade";
 import { EffectFade, Navigation, Pagination } from "swiper";
 import WhyUsCard from "./WhyUsCard/WhyUsCard";
 import ReviewsCard from "./ReviewsCard/ReviewsCard";
-import { useAppSelector } from '../../../src/hooks'
+import { useAppSelector, useAppDispatch } from '../../../src/hooks';
+import { setBasketState } from '../../store/basketStateSlise';
+
 
 function PopupCardProduct() {
-    const [selectQuantity, setSelectQuantity] = React.useState('ds,bhtnt');
+    // берем данные товара, который выбрал покупатель
+    const popupCardState = useAppSelector(state => state.product.popupCardState);
+
+    const [selectQuantity, setSelectQuantity] = React.useState(popupCardState.minProduct);
     const onChangeSelectQuantity = (e) => {
         setSelectQuantity(e.target.value)
     }
 
-    const [selectColor, setSelectColor] = React.useState('ds,bhtnt');
+    const [selectColor, setSelectColor] = React.useState(popupCardState.color[0]);
     const onChangeSelectColor = (e) => {
         setSelectColor(e.target.value)
     }
 
-    const [selectDecoration, setSelectDecoration] = React.useState('ds,bhtnt');
+    const [selectDecoration, setSelectDecoration] = React.useState(popupCardState.otherServices[0].price);
     const onChangeSelectDecoration = (e) => {
         setSelectDecoration(e.target.value)
     }
@@ -70,26 +75,46 @@ function PopupCardProduct() {
             return 3;
         } else return 2;
     }
-    // берем данные товара, который выбрал покупатель
-    const popupCardState = useAppSelector(state => state.product.popupCardState);
 
+
+
+    // создаем состояние для главного изображения 
     const [image, SetImage] = React.useState(popupCardState.image);
 
+    const dispatch = useAppDispatch();
+
+    // функция отображения фотографий 
     function showImage(e) {
         SetImage(e.target.src)
     }
+    interface data {
+        image: string,
+        width: number,
+        height: number,
+        price: number,
+        id: number,
+        color: string,
+        text: string,
+        priceOtherServices: number,
+        counter: number
+    }
 
-    // function addBasket() {
-    //     basketCard.push({
-    //         image: image,
-    //         text: text,
-    //         price: price,
-    //         width: '60 см',
-    //         heigth: '40 см',
-    //         id: id,
-    //     })
-    //     setOrder(true);
-    // }
+    function addBasket() {
+        const data: data = {
+            image: popupCardState.image,
+            width: popupCardState.width,
+            height: popupCardState.height,
+            price: (popupCardState.price + Number(selectDecoration)),
+            id: Math.round(Math.random() * 100000),
+            color: selectColor,
+            text: popupCardState.text,
+            priceOtherServices: Number(selectDecoration),
+            counter: Number(selectQuantity)
+        }
+        console.log(data);
+        dispatch(setBasketState(data))
+
+    }
 
     // function removeBasket() {
     //     const item = basketCard.find(item => item.id === id);
@@ -196,11 +221,8 @@ function PopupCardProduct() {
                             <p className="card-product__color-title">Цвет</p>
                             <select className='select-quantity' value={selectColor || ''} onChange={onChangeSelectColor}>
                                 {popupCardState.color.map((i) => {
-                                    return <option value={i}>{i}</option>
+                                    return <option value={i}>{i} </option>
                                 })}
-                                {/* <option value={popupCardState.color}>{popupCardState.color}</option>
-                                <option value="Красный">Красный</option>
-                                <option value="Розовый">Розовый</option> */}
                             </select>
                         </div>
                         <div className="card-product__select-container">
@@ -209,15 +231,10 @@ function PopupCardProduct() {
                                 {popupCardState.otherServices.map((i) => {
                                     return <option value={i.price}>{i.text}</option>
                                 })}
-                                {/* <option value="0">Прозрачная упаковка - 0 руб.</option>
-                                <option value="100">Не прозрачная  упаковка - 100 руб.</option>
-                                <option value="500">Красивая  упаковка - 500 руб.</option> */}
                             </select>
                         </div>
-                        <button className="card-product__button">Добавить в корзину</button>
+                        <button className="card-product__button" onClick={addBasket}>Добавить в корзину</button>
                     </div>
-
-
                 </div>
                 <div className='card-product__reviews-header-container'>
                     <h3 className="card-product__reviews-header">Отзывы ({popupCardState.reviews.length})</h3>
@@ -289,7 +306,7 @@ function PopupCardProduct() {
                         <SwiperSlide><WhyUsCard image={green_sun} text={'Круглосуточная служба поддержки'} /></SwiperSlide>
 
                     </Swiper >
-                    <button className="card-product-button-right" ref={Next}><img src={button_right} alt="правая кнопка в виде стрелки" /></button>
+                    <button className="card-product-button-right" ref={Next} ><img src={button_right} alt="правая кнопка в виде стрелки" /></button>
                 </div >
             </section>
         </>
