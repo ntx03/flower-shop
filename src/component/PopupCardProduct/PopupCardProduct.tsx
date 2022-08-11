@@ -76,8 +76,6 @@ function PopupCardProduct() {
         } else return 2;
     }
 
-
-
     // создаем состояние для главного изображения 
     const [image, SetImage] = React.useState(popupCardState.image);
 
@@ -288,14 +286,13 @@ function PopupCardProduct() {
                             swiper.params.navigation.nextEl = Next.current;
                         }}
                     >
-                        <SwiperSlide><WhyUsCard image={orange_sun} text={'Круглосуточная доставка'} /></SwiperSlide>
-                        <SwiperSlide><WhyUsCard image={green_sun} text={'Фотоотчет'} /></SwiperSlide>
-                        <SwiperSlide><WhyUsCard image={green_sun} text={'Приемлемые цены'} /></SwiperSlide>
-                        <SwiperSlide><WhyUsCard image={pink_sun} text={'Гарантия качества'} /></SwiperSlide>
-                        <SwiperSlide><WhyUsCard image={red_sun} text={'Индивидуальный подход'} /></SwiperSlide>
-                        <SwiperSlide><WhyUsCard image={blue_sun} text={'Бесплатная открытка'} /></SwiperSlide>
-                        <SwiperSlide><WhyUsCard image={green_sun} text={'Круглосуточная служба поддержки'} /></SwiperSlide>
-
+                        <SwiperSlide><WhyUsCard image={orange_sun} text={'Круглосуточная доставка'} key={'Круглосуточная доставка'} /></SwiperSlide>
+                        <SwiperSlide><WhyUsCard image={green_sun} text={'Фотоотчет'} key={'Фотоотчет'} /></SwiperSlide>
+                        <SwiperSlide><WhyUsCard image={green_sun} text={'Приемлемые цены'} key={'Приемлемые цены'} /></SwiperSlide>
+                        <SwiperSlide><WhyUsCard image={pink_sun} text={'Гарантия качества'} key={'Гарантия качества'} /></SwiperSlide>
+                        <SwiperSlide><WhyUsCard image={red_sun} text={'Индивидуальный подход'} key={'Индивидуальный подход'} /></SwiperSlide>
+                        <SwiperSlide><WhyUsCard image={blue_sun} text={'Бесплатная открытка'} key={'Бесплатная открытка'} /></SwiperSlide>
+                        <SwiperSlide><WhyUsCard image={green_sun} text={'Круглосуточная служба поддержки'} key={'Круглосуточная служба поддержки'} /></SwiperSlide>
                     </Swiper >
                     <button className="card-product-button-right" ref={Next} ><img src={button_right} alt="правая кнопка в виде стрелки" /></button>
                 </div >

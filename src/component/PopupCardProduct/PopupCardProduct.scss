@@ -223,6 +223,9 @@
         text-align: start;
         max-height: 150px;
         overflow: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     &__image-part-swiper {

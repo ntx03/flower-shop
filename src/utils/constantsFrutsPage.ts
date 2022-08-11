@@ -1,54 +1,53 @@
-import frut from '../img/frut.svg';
+import frut from '../img/frutbasket/frut.jpg';
+import frut2 from '../img/frutbasket/frut2.jpg';
+import frut3 from '../img/frutbasket/frut3.jpg';
 
-interface productCardShema {
-    image: string,
-    text: string,
-    price: number,
-    priseOld: string,
-    id: number
-}
+import { productCardShema } from './constantsFlowersPage';
+
 
 export const productCardFrut: productCardShema[] = [
     {
         image: frut,
-        text: 'Фруктовая корзина',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.26008271750247136 * 100000000)
-    },
-    {
-        image: frut,
-        text: 'Фруктовая корзина',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.595402828102888 * 100000000)
-    },
-    {
-        image: frut,
-        text: 'Фруктовая корзина',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.014000158844964306 * 100000000)
-    },
-    {
-        image: frut,
-        text: 'Фруктовая корзина',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.9811300593709456 * 100000000)
-    },
-    {
-        image: frut,
-        text: 'Фруктовая корзина',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.1841074967936891 * 100000000)
-    },
-    {
-        image: frut,
-        text: 'Фруктовая корзина',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.41468545478283203 * 100000000)
+        image2: frut2,
+        image3: frut3,
+        text: 'Корзина с фруктами',
+        width: 52,
+        height: 28,
+        price: 5600,
+        priseOld: '6000 ₽',
+        id: Math.round(0.3271705890857328 * 100000000),
+        minProduct: 1,
+        color: ['Белый', "коричневый", "черный"],
+        otherServices: [
+            {
+                price: 0,
+                text: 'без дополнительного наполнения - 0 руб'
+            },
+            {
+                price: 800,
+                text: '+ швейцарский шоколад  - 800 руб.'
+            },
+            {
+                price: 3000,
+                text: '+ + швейцарский шоколад и бутылка шампанского - 3000 руб.'
+            }],
+        reviews: [
+            {
+                name: 'Захар',
+                text: 'Фррукты свежие, как на картинке! Рекомендую.'
+            },
+            {
+                name: 'Маша Максимова',
+                text: 'Оформили корзину очень красиво! Маме понравилось!'
+            },
+            {
+                name: 'Павел',
+                text: 'Подарил корзину с шампанским, девушке. Выпили вместе. Шампанское класс:)'
+            },
+            {
+                name: 'Петр',
+                text: 'У начальницы было день рождения. Заказал во флористмэне черную корзину с шоколадом. Она была приятно удивлина. Думаю проблем на работе будет меньше:) Спасибо за вашу работу!'
+            },
+        ]
     },
 ]

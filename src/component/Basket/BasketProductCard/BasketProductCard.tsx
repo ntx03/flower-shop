@@ -10,7 +10,7 @@ function BasketProductCard({ image, text, width, height, price, id, summOrder, s
     const dispatch = useAppDispatch();
     // берем данные товара, который выбрал покупатель
     const basketState = useAppSelector(state => state.basket.basketState);
-    console.log(basketState);
+
     // счтечик количества товаров
     const [counter, SetCounter] = React.useState(counterState);
 
@@ -62,8 +62,6 @@ function BasketProductCard({ image, text, width, height, price, id, summOrder, s
             dispatch(changeCounterState(objectCounterMinus))
         }
     }
-
-
 
     // удаляем товар
     function deleteProduct() {

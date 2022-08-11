@@ -18,7 +18,7 @@ import flowers5_2 from '../img/flowers/5-2.jpg';
 import flowers5_3 from '../img/flowers/5-3.jpg';
 
 
-interface productCardShema {
+export interface productCardShema {
     image: string,
     image2: string,
     image3: string,
@@ -26,7 +26,7 @@ interface productCardShema {
     price: number,
     width: number,
     height: number,
-    priseOld: string,
+    priseOld?: string,
     id: number,
     minProduct: number,
     color: string[],
@@ -68,7 +68,7 @@ export const productCard: productCardShema[] = [
         reviews: [
             {
                 name: 'Andrey',
-                text: 'Товар отличного качества'
+                text: 'Товар отличного качества Товар отличного качества Товар отличного качества Товар отличного качества Товар отличного качества Товар отличного качества Товар отличного качества Товар отличного качества Товар отличного качества'
             },
             {
                 name: 'Катя',
@@ -88,7 +88,7 @@ export const productCard: productCardShema[] = [
         image: flowers5_1,
         image2: flowers5_2,
         image3: flowers5_3,
-        text: 'корзина фиолетовых роз',
+        text: 'Букет розовых роз с оформлением хризантемами',
         minProduct: 1,
         color: ['Фиолетовый', "Красный", "Розовый"],
         price: 3000,
@@ -132,7 +132,7 @@ export const productCard: productCardShema[] = [
         image2: flowers2,
         image3: flowers3,
         // image_1: require('../img/flowers.svg'),
-        text: 'корзина фиолетовых роз',
+        text: 'Корзина фиолетово-красных  роз',
         price: 1000,
         minProduct: 1,
         width: 60,
@@ -175,7 +175,7 @@ export const productCard: productCardShema[] = [
         image: flowers2_1,
         image2: flowers2_2,
         image3: flowers2_3,
-        text: 'корзина фиолетовых роз',
+        text: 'Букет комбинированных по цвету роз',
         price: 2000,
         priseOld: '2500 ₽',
         minProduct: 1,
@@ -218,7 +218,7 @@ export const productCard: productCardShema[] = [
         image: flowers3_1,
         image2: flowers3_2,
         image3: flowers3_3,
-        text: 'корзина фиолетовых роз',
+        text: 'Букет розовых роз',
         price: 999,
         priseOld: '2500 ₽',
         minProduct: 1,
@@ -261,7 +261,7 @@ export const productCard: productCardShema[] = [
         image: flowers4_1,
         image2: flowers4_2,
         image3: flowers4_3,
-        text: 'корзина фиолетовых роз',
+        text: 'Букет красно-белых роз',
         price: 1400,
         priseOld: '2500 ₽',
         minProduct: 1,

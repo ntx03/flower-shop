@@ -1,54 +1,42 @@
-import tort from '../img/tort.svg';
+import tort from '../img/tort/tort.jpg';
+import tort2 from '../img/tort/tort2.jpg';
+import tort3 from '../img/tort/tort3.jpg';
 
-interface productCardShema {
-    image: string,
-    text: string,
-    price: number,
-    priseOld: string,
-    id: number
-}
+import { productCardShema } from './constantsFlowersPage';
 
 export const productCardTort: productCardShema[] = [
     {
         image: tort,
-        text: 'Торт иогуртовый с кусочками фруктов',
-        price: 1500,
+        image2: tort2,
+        image3: tort3,
+        text: 'Торт c бисквитной начинкой и ягодами',
+        width: 20,
+        height: 30,
+        price: 2000,
         priseOld: '2500 ₽',
-        id: Math.round(0.016903999124513236 * 100000000)
-    },
-    {
-        image: tort,
-        text: 'Торт иогуртовый с кусочками фруктов',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.14293415241911234 * 100000000)
-    },
-    {
-        image: tort,
-        text: 'Торт иогуртовый с кусочками фруктов',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.8464488686958846 * 100000000)
-    },
-    {
-        image: tort,
-        text: 'Торт иогуртовый с кусочками фруктов',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.03622525520194286 * 100000000)
-    },
-    {
-        image: tort,
-        text: 'Торт иогуртовый с кусочками фруктов',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.8297591124104511 * 100000000)
-    },
-    {
-        image: tort,
-        text: 'Торт иогуртовый с кусочками фруктов',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.25921836718480806 * 100000000)
+        id: Math.round(0.3271705890857328 * 100000000),
+        minProduct: 1,
+        color: ['шоколадный', "малиновый", "кремовый"],
+        otherServices: [
+            {
+                price: 0,
+                text: 'без дополнительного оформления - 0 руб'
+            },
+            {
+                price: 400,
+                text: 'украшение бантом - 400 руб.'
+            },
+        ],
+        reviews: [
+            {
+                name: 'Andrey',
+                text: 'Торт очень вкусный! Буду заказывать еще.'
+            },
+
+            {
+                name: 'Макс',
+                text: 'Доставили очень быстро!'
+            },
+        ]
     },
 ]

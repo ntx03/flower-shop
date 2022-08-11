@@ -1,55 +1,54 @@
-import gifts from '../img/gifts.svg';
+import gifts from '../img/gifts/gift.jpg';
+import gifts2 from '../img/gifts/gift2.jpg';
+import gifts3 from '../img/gifts/gift3.jpeg';
+import { productCardShema } from './constantsFlowersPage';
 
-interface productCardShema {
-    image: string,
-    text: string,
-    price: number,
-    priseOld: string,
-    id: number
-}
+
 
 export const productCardGifts: productCardShema[] = [
     {
         image: gifts,
-        text: 'Плюшевый мишка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.9541121322737847 * 100000000)
+        image2: gifts2,
+        image3: gifts3,
+        text: 'Мягкая игрушка с животными',
+        width: 40,
+        height: 60,
+        price: 5000,
+        priseOld: '5500 ₽',
+        id: Math.round(0.3271705890857328 * 100000000),
+        minProduct: 1,
+        color: ['Песик', "Енотик", "Львенок"],
+        otherServices: [
+            {
+                price: 0,
+                text: 'без дополнительного оформления - 0 руб'
+            },
+            {
+                price: 200,
+                text: 'Оформление бантом - 200 руб.'
+            },
+            {
+                price: 1000,
+                text: 'Оформление праздничной коробкой с бантом - 1000 руб.'
+            }],
+        reviews: [
+            {
+                name: 'Andrey',
+                text: 'Товар отличного качества!'
+            },
+            {
+                name: 'Катя',
+                text: 'Очень красивая и качественная магкая игрушка! Ребенку очень понравилось!'
+            },
+            {
+                name: 'Павел',
+                text: 'Купил львенка - ребенок просто в восторге!'
+            },
+            {
+                name: 'Макс',
+                text: 'Доставили очень быстро!'
+            },
+        ]
     },
-    {
-        image: gifts,
-        text: 'Плюшевый мишка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.37531422527932845 * 100000000)
-    },
-    {
-        image: gifts,
-        text: 'Плюшевый мишка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.7461889581633518 * 100000000)
-    },
-    {
-        image: gifts,
-        text: 'Плюшевый мишка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.4080621409253318 * 100000000)
-    },
-    {
-        image: gifts,
-        text: 'Плюшевый мишка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(
-            0.9822800458148795 * 100000000)
-    },
-    {
-        image: gifts,
-        text: 'Плюшевый мишка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.7349985559740184 * 100000000)
-    },
+
 ]

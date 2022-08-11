@@ -1,54 +1,41 @@
-import servises from '../img/servises.svg';
+import servises from '../img/servises/servises.jpg';
+import servises2 from '../img/servises/servises2.jpg';
+import servises3 from '../img/servises/servises3.jpg';
+import { productCardShema } from './constantsFlowersPage';
 
-interface productCardShema {
-    image: string,
-    text: string,
-    price: number,
-    priseOld: string,
-    id: number
-}
 
 export const productCardServises: productCardShema[] = [
     {
         image: servises,
-        text: 'Стилизация подарка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.5097864646277122 * 100000000)
-    },
-    {
-        image: servises,
-        text: 'Стилизация подарка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.6335226163522079 * 100000000)
-    },
-    {
-        image: servises,
-        text: 'Стилизация подарка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.13260955600062974 * 100000000)
-    },
-    {
-        image: servises,
-        text: 'Стилизация подарка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.04522059204668816 * 100000000)
-    },
-    {
-        image: servises,
-        text: 'Стилизация подарка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.12562807062617365 * 100000000)
-    },
-    {
-        image: servises,
-        text: 'Стилизация подарка',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.30818684111752614 * 100000000)
+        image2: servises2,
+        image3: servises3,
+        text: 'Нанесение надписей на цветы',
+        width: 21,
+        height: 53,
+        price: 150,
+        priseOld: '200 ₽',
+        id: Math.round(0.3271705890857328 * 100000000),
+        minProduct: 3,
+        color: ['Белый', "Розовый", "Черный", 'Красный', 'Фиолетовый'],
+        otherServices: [
+            {
+                price: 0,
+                text: 'без дополнительного оформления - 0 руб'
+            },
+        ],
+        reviews: [
+            {
+                name: 'Andrey',
+                text: 'Моя подруга очень удивилась!'
+            },
+            {
+                name: 'Катя',
+                text: 'Коллеги на работе были в восторге!'
+            },
+            {
+                name: 'Макс',
+                text: 'Пришел в магазин, сдалали на моих цветах очень быстро!'
+            },
+        ]
     },
 ]

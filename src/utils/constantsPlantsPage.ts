@@ -1,54 +1,49 @@
-import Plants from '../img/plants.svg';
+import plant from '../img/plants/plant.jpg';
+import plant2 from '../img/plants/plant2.jpg';
+import plant3 from '../img/plants/plant3.jpg';
 
-interface productCardShema {
-    image: string,
-    text: string,
-    price: number,
-    priseOld: string,
-    id: number
-}
+import { productCardShema } from './constantsFlowersPage';
 
 export const productCardPlants: productCardShema[] = [
     {
-        image: Plants,
-        text: 'Комнатные растения',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.6987809658650614 * 100000000)
-    },
-    {
-        image: Plants,
-        text: 'Комнатные растения',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.69346557146468 * 100000000)
-    },
-    {
-        image: Plants,
-        text: 'Комнатные растения',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.771310293380205 * 100000000)
-    },
-    {
-        image: Plants,
-        text: 'Комнатные растения',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.25829663865170227 * 100000000)
-    },
-    {
-        image: Plants,
-        text: 'Комнатные растения',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.24782075945411552 * 100000000)
-    },
-    {
-        image: Plants,
-        text: 'Комнатные растения',
-        price: 1500,
-        priseOld: '2500 ₽',
-        id: Math.round(0.02787071380029893 * 100000000)
+        image: plant,
+        image2: plant2,
+        image3: plant3,
+        text: 'Фикус (комнатное растение)',
+        width: 24,
+        height: 60,
+        price: 4000,
+        priseOld: '4500 р',
+        id: Math.round(0.3271705890857328 * 100000000),
+        minProduct: 1,
+        color: ['Гинсенг', "Мелкоплодный", "Разветвленный"],
+        otherServices: [
+            {
+                price: 0,
+                text: 'без дополнительного оформления - 0 руб'
+            },
+            {
+                price: 1000,
+                text: 'Подарочная коробка - 1000 руб.'
+            },
+        ],
+        reviews: [
+            {
+                name: 'Andrey',
+                text: 'Товар отличного качества!'
+            },
+            {
+                name: 'Катя',
+                text: 'Доставили в наилучшем виде!'
+            },
+            {
+                name: 'Павел',
+                text: 'Очень прикольные растения, за адекватную цену!'
+            },
+            {
+                name: 'Макс',
+                text: 'Доставили очень быстро!'
+            },
+        ]
     },
 ]

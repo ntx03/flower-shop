@@ -222,7 +222,7 @@ function Main() {
                         <div className="main__form-button-container">
                             <input type="file" name="file" id="input__file" onChange={handleChangeFile} />
                             <label htmlFor="input__file" className="main__form-button-file">+ Прикрепить файл</label>
-                            <button className={validate ? "main__form-button-send" : "main__form-button-send main__form-button-send_disabled"} type="submit">Отправить</button>
+                            <button className="main__form-button-send" type="submit">Отправить</button>
                         </div>
                         <p className={fileAppend ? "main__form-input-file-text" : 'main__form-input-file-text_none'}>{`Файл ${localStorage.getItem('fileForm')} успешно добавлен`}</p>
                     </div>
@@ -234,22 +234,22 @@ function Main() {
                         title={'Качество'}
                         text={'На Рыжском рынке предоставлены оптовые продавцы, которые торгуют самыми свежими цветами'}
                         image={star}
-                        key={'1'} />
+                        key={'Качество'} />
                     <InformationItem
                         title={'Фото-отчет'}
                         text={'Перед доставкой мы отправляем Вам фотографию готового букета'}
                         image={fotoapparat}
-                        key={'2'} />
+                        key={'Фото-отчет'} />
                     <InformationItem
                         title={'Цена'}
                         text={'Да, у нас самые дешевые цены в онлайне! В 2-3 раза дешевле от обычных!'}
                         image={wallet}
-                        key={'3'} />
+                        key={'Цена'} />
                     <InformationItem
                         title={'Время'}
                         text={'Мы доставляем от 2-х часов! (Реальное время, а не маркетинговый ход)  И принимаем заказы 24/7'}
                         image={watch}
-                        key={'4'} />
+                        key={'Время'} />
                 </div>
                 <h2 className="main__title">Как оформить заказ?</h2>
                 <div className="main__information main__information_end">
@@ -257,22 +257,22 @@ function Main() {
                         title={'Оставьте заявку на сайте'}
                         text={'Наш сотрудник свяжется с Вами для уточнения деталей вашего заказа'}
                         image={paper}
-                        key={'5'} />
+                        key={'Оставьте заявку на сайте'} />
                     <InformationItem
                         title={'Фото-отчет'}
                         text={'Перед доставкой мы пришлем фотографию готового Вашего букета, чтобы Вы убедились в его качестве. После утверждения вами заказа, курьер поедет по адресу'}
                         image={imagei}
-                        key={'6'} />
+                        key={'Фото-отчет'} />
                     <InformationItem
                         title={'Способ оплаты'}
                         text={'Наличными либо безналичным расчетом банковской картой после доставки'}
                         image={card}
-                        key={'7'} />
+                        key={'Способ оплаты'} />
                     <InformationItem
                         title={'Доставка'}
                         text={'Возьмём на себя все заботы по созданию, оформлению и доставке корпоративных букетов в обычные  и праздничные дни за разумные деньги'}
                         image={truck}
-                        key={'8'} />
+                        key={'Доставка'} />
                 </div>
             </section>
         </>

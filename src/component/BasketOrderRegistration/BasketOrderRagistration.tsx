@@ -53,7 +53,7 @@ function BasketOrderRegistration() {
     const yyyy = today.getFullYear();
 
     const [date, setDate] = React.useState(`${dd}.${mm}.${yyyy}`);
-    console.log(date);
+
     const onChangeDate = (e) => {
         setDate(e.target.value)
     }
@@ -62,6 +62,13 @@ function BasketOrderRegistration() {
     const onChangeSelectTime = (e) => {
         setSelectTime(e.target.value)
     }
+
+    const [selectCity, setSelectCity] = React.useState('Москва');
+    const onChangeSelectCity = (e) => {
+        setSelectCity(e.target.value)
+    }
+
+
     // чекбокс я сам получу заказ
     const [checkbox, SetCheckbox] = React.useState(false);
 
@@ -210,7 +217,7 @@ function BasketOrderRegistration() {
                     <div className='order__form-input-container-two'>
                         <div className='input__container'>
                             <div className="input-city">
-                                <select className='select select-city' disabled={checkbox} value={selectTime || ''} onChange={onChangeSelectTime}>
+                                <select className='select select-city' disabled={checkbox} value={selectCity || ''} onChange={onChangeSelectCity}>
                                     <option value="Москва">Москва</option>
                                     <option value="Тюмень">Тюмень</option>
                                     <option value="Томск">Томск</option>
