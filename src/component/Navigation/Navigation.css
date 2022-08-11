@@ -1,0 +1,149 @@
+.navigation {
+    max-width: 1280px;
+    background: #56C54B;
+    background: linear-gradient(center, ellipse cover, #56C54B, #286622);
+    background: radial-gradient(top, #56C54B, #286622);
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.2s, opacity 0.2s linear;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation_open {
+    width: 100vw;
+    background-color: #56C54B;
+    z-index: 2;
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition: visibility 0.2s, opacity 0.2s linear;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    justify-content: start;
+    align-items: center;
+    overflow: visible;
+    overflow-Y: auto;
+
+
+}
+
+.navigation__container {
+    background: #56C54B;
+    background: -webkit-linear-gradient(top, #56C54B, #286622);
+    width: 100vw;
+    height: auto;
+    margin: 0 0 auto 0;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible;
+    transition: visibility 0.2s, opacity 0.2s linear;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: auto;
+    z-index: 1;
+}
+
+.navigation__lable {
+    margin: 17px 0 28px 10px;
+    display: flex;
+    width: 175px;
+    height: 51px;
+}
+
+.navigation__office-container {
+    display: flex;
+    justify-content: end;
+    margin: 0px 10px 10px 0;
+    width: auto;
+}
+
+.navigation__icon-office {
+    width: 30px;
+    height: 30px;
+    margin: auto 0px auto 8px;
+
+}
+
+.navigation__office-text {
+    font-size: 22px;
+    line-height: 30px;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navigation__office-text:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.navigation__container-link {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 0 0;
+    height: min-content;
+    width: 100vw;
+    margin: 0px auto 0px auto;
+
+}
+
+.navigation__link-box {
+    width: 95vw;
+}
+
+.navigation__link {
+    padding-left: 10px;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 400;
+    text-align: start;
+    text-decoration: none;
+    color: #ffffff;
+    padding-bottom: 10px;
+    border-bottom: #ffffff 1px solid;
+    margin-top: 10px;
+}
+
+.navigation__link:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+
+@media (max-width: 400px) {
+    .navigation__lable {
+        width: 76px;
+        height: 23px;
+    }
+
+    .navigation__link {
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    .navigation__office-text {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .navigation__icon-office {
+        width: 20px;
+        height: 20px;
+    }
+
+}

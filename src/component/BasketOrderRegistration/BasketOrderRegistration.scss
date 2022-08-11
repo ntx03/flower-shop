@@ -1,0 +1,593 @@
+.order {
+    display: flex;
+    flex-direction: column;
+    width: 1160px;
+    margin: 70px auto 40px auto;
+}
+.order__truckBuy {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 25px auto;
+}
+
+.order__header-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.order__header-text {
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 31px;
+    letter-spacing: 6%;
+    color: #215d17;
+    white-space: nowrap;
+    justify-content: center;
+}
+
+.order__header-text_gray {
+    color: #000000;
+    opacity: 0.5;
+}
+
+.order__indication-container {
+    width: 94.7%;
+    margin: 0px auto 0px auto;
+}
+.basker__indication-image {
+    width: 100%;
+    margin: 0px auto 0px auto;
+}
+
+.order__indication-container {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.order__one-container {
+    display: flex;
+}
+.order__line {
+    position: absolute;
+    border: #215d17 1px solid;
+    width: 99%;
+    top: 18px;
+}
+.order__one {
+    height: 35px;
+    padding-top: 3px;
+    width: 38px;
+    background-color: #55b74c;
+    border-radius: 50%;
+    text-align: center;
+    color: #ffffff;
+    z-index: 1;
+    font-size: 23px;
+    line-height: 31px;
+    font-weight: 500;
+}
+.order__two {
+    background-color: #ffffff;
+    border: #215d17 2px solid;
+    color: #000000;
+    box-sizing: border-box;
+    padding-top: 1px;
+    height: 37px;
+}
+
+.order__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.order__list-title {
+    margin: 0;
+    font-size: 20px;
+    color: #898989;
+    line-height: 27px;
+
+    margin: 26px 0px auto 0px;
+    &-span {
+        font-size: 23px;
+        line-height: 31px;
+        letter-spacing: 6%;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #215d17;
+        margin-right: 14px;
+        &:last-child {
+            margin-left: 14px;
+            margin-right: 0;
+        }
+    }
+}
+
+.order__check-box-container {
+    width: 1160px;
+    background-color: #f8f8f8;
+    display: flex;
+    border-radius: 5px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 0 20px 0 20px;
+}
+
+.order__form {
+    width: 1160px;
+    background-color: #f9f9f9;
+    margin: 25px auto 0px auto;
+}
+.order__form-title-container {
+    display: flex;
+    margin: 40px auto 0px 34px;
+    gap: 42px;
+}
+.order__form-title {
+    font-size: 23px;
+    line-height: 31px;
+    letter-spacing: 6%;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    color: #215d17;
+    margin: auto 0 auto 0;
+    text-transform: uppercase;
+}
+.order__form-title-checkbox-container-box {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 10px;
+}
+.order__form-title-checkbox-container {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    gap: 13px;
+    margin: 0;
+}
+
+.order__form-title-checkbox-container-delivery {
+    display: grid;
+    gap: 13px;
+    grid-template-columns: min-content max-content min-content;
+    // margin: 18px 18px 50px auto;
+    max-width: 289px;
+}
+
+.order__form-checkbox {
+    margin: auto 0 auto 0;
+    height: 14px;
+    width: 14px;
+    padding: 0;
+    border: 1px solid #000000;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.order__form-checkbox-text {
+    font-size: 23px;
+    line-height: 31px;
+    letter-spacing: 6%;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    opacity: 0.7;
+    margin: auto 0 auto 0;
+}
+
+.order__form-input-container {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+    margin: 33px 34px 41px 34px;
+}
+.order__form-input-icon {
+    height: 25px;
+    width: 25px;
+    margin: 15px 18px 15px 0px;
+}
+
+.input-width {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    max-width: 389px;
+    height: 56px;
+    border-radius: 5px;
+    border: 1px solid #898989;
+    background: #fff;
+}
+.width-setter {
+    height: 56px;
+    margin: 0 9px;
+    position: relative;
+}
+.width-seter_adress {
+    margin: 0;
+    width: 90%;
+    border: 1px solid #898989;
+    border-left: none;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.width-setter-text {
+    padding: 0;
+    margin: 5px 0 0 0;
+    font-size: 13px;
+    line-height: 18px;
+    color: #898989;
+}
+.input {
+    outline: none;
+    width: 100%;
+    height: 48px;
+    padding: 4px 9px 5px;
+    margin: 0;
+    font-size: 20px;
+    line-height: 27px;
+    color: #898989;
+    border: 0 none;
+    background: inherit;
+    position: absolute;
+    left: -9px;
+    top: 0;
+    &::placeholder {
+        opacity: 0.25;
+    }
+}
+
+.input__date {
+    height: 23px;
+    padding: 25px 0 0px 9px;
+    font-size: 17px;
+    line-height: 23px;
+    color: #323232;
+    &::-webkit-calendar-picker-indicator {
+        display: none;
+    }
+}
+.input_adress {
+    max-width: 95%;
+    padding: 0;
+    left: 10px;
+    top: 3px;
+    box-sizing: border-box;
+}
+.select {
+    outline: none;
+    width: 100%;
+    margin: 0;
+    border: 0 none;
+    background: inherit;
+    position: absolute;
+    left: -9px;
+    top: 27px;
+    left: 0px;
+    font-size: 17px;
+    line-height: 23px;
+    color: #323232;
+    & {
+        -moz-appearance: none;
+        /* for Chrome */
+        -webkit-appearance: none;
+    }
+}
+
+.select-city {
+    font-size: 20px;
+    line-height: 27px;
+    top: 14px;
+    left: 10px;
+    width: min-content;
+}
+
+.order__form-text {
+    font-size: 20px;
+    line-height: 27px;
+    max-width: 1032px;
+    margin: 33px 34px 40px 34px;
+    padding: 0;
+    text-align: start;
+}
+
+.order__form-checkbox-delivery {
+    width: 27px;
+    height: 27px;
+    margin: auto 0 auto 0;
+    padding: 0;
+    border: 1px solid #000000;
+    border-radius: 2px;
+    //box-sizing: border-box;
+}
+
+.order__form-checkbox-text-delivery {
+    padding: 0;
+    color: #000000;
+    margin: auto 0 auto 0;
+    max-width: 283px;
+    text-align: start;
+}
+
+.order__form-input-container-two {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 2.09fr 1fr;
+    gap: 25px;
+    margin: 33px 34px 0 34px;
+}
+.order__form-input-container-three {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 25px;
+    margin: 18px 34px 0 34px;
+}
+
+.input__container {
+    width: 100%;
+    display: flex;
+}
+
+.input-city {
+    width: 109px;
+    height: 56px;
+    position: relative;
+    border: 1px solid #898989;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.order__form-button-box {
+    display: grid;
+    grid-template-columns: min-content min-content 1fr;
+    margin: 50px 20px 50px 34px;
+    gap: 20px;
+    //flex-wrap: wrap;
+}
+.order__form-button-basket {
+    width: 299px;
+    height: 56px;
+    padding-top: 12px;
+    // padding-bottom: 10px;
+    border-radius: 7px;
+    border: 2px solid #55b74c;
+    background-color: inherit;
+    box-sizing: border-box;
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    //padding: 10px 0px 0px 0px;
+    color: #55b74c;
+    margin: auto 0px auto 0px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.order__form-button-pay {
+    width: 269px;
+    height: 54px;
+    border-radius: 7px;
+    border: none;
+    background-color: #55b74c;
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 700;
+    text-align: center;
+    //padding: 10px 0px 0px 0px;
+    color: #ffffff;
+    margin: auto 15px auto 15px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.order__form-politica-text {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    line-height: 21px;
+    max-width: 393px;
+    height: min-content;
+    text-align: start;
+    margin: auto 0px auto 0px;
+    &-span {
+        color: #55b74c;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1330px) {
+    .order {
+        margin: 70px 100px 40px 100px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .order {
+        margin: 70px auto 40px auto;
+        width: 93vw;
+    }
+    .order__check-box-container {
+        width: 93vw;
+    }
+
+    .order__form {
+        width: 93vw;
+    }
+}
+
+@media (max-width: 1206px) {
+    .order__check-box-container {
+        justify-content: center;
+    }
+}
+@media (max-width: 1024px) {
+    .order__form-button-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 50px 20px 50px 34px;
+        gap: 20px;
+        justify-items: center;
+        //flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 900px) {
+    .order__form-input-container {
+        grid-template-columns: 1fr;
+    }
+
+    .input-width {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 804px) {
+    .order__check-box-container {
+        flex-direction: column;
+    }
+    .order__form-input-container-two {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .order__form-checkbox-text-delivery {
+        max-width: max-content;
+    }
+}
+
+@media (max-width: 760px) {
+    .order {
+        margin: 20px auto 20px auto;
+    }
+    .order__form-button-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 50px 20px 50px 34px;
+        gap: 20px;
+        align-items: center;
+    }
+    .order__form-politica-text {
+        text-align: center;
+    }
+    .order__form-button-basket {
+        width: 269px;
+    }
+}
+@media (max-width: 600px) {
+    .order__list-title {
+        max-width: 300px;
+    }
+    .order__form-title-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .order__form-text {
+        font-size: 14px;
+        line-height: 19px;
+        margin: 0px 20px 0 20px;
+    }
+
+    .order__form-title-container {
+        margin: 20px 0px 0px 20px;
+    }
+
+    .order__form-input-container {
+        margin: 20px 20px 20px 20px;
+    }
+
+    .order__form-input-container-two {
+        margin: 20px 20px 0px 20px;
+    }
+}
+@media (max-width: 500px) {
+    .order__header-text {
+        font-size: 18px;
+        line-height: 25px;
+    }
+}
+
+@media (max-width: 430px) {
+    .order__header-text {
+        font-size: 14px;
+        line-height: 19px;
+    }
+    .order__form-button-basket {
+        padding-top: 8px;
+    }
+    .order__form-title {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .order__form-checkbox-text {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .width-setter input {
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .select-city {
+        font-size: 16px;
+        line-height: 19px;
+        top: 18px;
+    }
+    .order__form-checkbox-delivery {
+        width: 18px;
+        height: 18px;
+    }
+
+    .order__form-checkbox-text-delivery {
+        font-size: 14px;
+        line-height: 19px;
+    }
+    .input_adress {
+        width: 90%;
+    }
+    .order__form-title-checkbox-container-box {
+        gap: 10px;
+        margin-top: 0px;
+    }
+
+    .order__form-button-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 20px 20px 20px 20px;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .order__form-button-basket {
+        width: 230px;
+        height: 44px;
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .order__form-button-pay {
+        width: 230px;
+        height: 44px;
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .order__form-politica-text {
+        font-size: 14px;
+        line-height: 19px;
+    }
+}

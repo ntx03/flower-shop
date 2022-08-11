@@ -1,0 +1,139 @@
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card__image-container {
+    width: 100%;
+    position: relative;
+    padding-top: 110%;
+}
+
+.card__image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.card__title {
+    width: 100%;
+    height: 60px;
+    padding: 0;
+    margin: 0 auto 24px 0;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #000000;
+    overflow: hidden;
+    text-align: start;
+}
+
+.card__price-container {
+    height: min-content;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.card__price {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 400;
+    text-align: center;
+}
+.card__price_gray {
+    color: #898989;
+    text-decoration: line-through;
+}
+
+.card__button {
+    background-color: #55b74c;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 7px;
+    border: none;
+    margin: 24px 0px 0px 0px;
+    transition: 0.5s;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 700;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+        transition: 0.5s;
+    }
+}
+
+.card__button-order {
+    background-color: rgb(176, 151, 7);
+}
+
+@media (max-width: 1040px) {
+    .card__price {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 940px) {
+    .card__price {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .card__title {
+        margin: 0 auto 0 0px;
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .card__button {
+        font-size: 16px;
+        line-height: 22px;
+    }
+}
+
+@media (max-width: 840px) {
+    .card__price {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .card__button {
+        font-size: 14px;
+        line-height: 19px;
+    }
+}
+
+@media (max-width: 560px) {
+    .card__button {
+        font-size: 11px;
+        line-height: 15px;
+        height: 35px;
+        margin: 10px 0px 0px 0px;
+    }
+    .card__price {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .card__title {
+        margin: 0 auto 6px 0px;
+        font-size: 12px;
+        line-height: 16px;
+        height: 30px;
+    }
+
+    .card__price-container {
+        gap: 4px;
+        height: 20px;
+        overflow: hidden;
+    }
+}

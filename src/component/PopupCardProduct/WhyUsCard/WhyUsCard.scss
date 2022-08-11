@@ -1,0 +1,28 @@
+.card-product-why-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 180px;
+}
+
+.card-product-why-image {
+    margin: 0px auto 0px auto;
+    width: 70px;
+    height: 70px;
+}
+
+.card-product-why-text {
+    margin: 0;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 500;
+    //white-space: nowrap;
+    text-align: center;
+}
+
+@media (max-width: 650px) {
+    .card-product-why-text {
+        font-size: 18px;
+        line-height: 25px;
+    }
+}
