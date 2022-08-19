@@ -1,6 +1,6 @@
 import flowers from '../img/flowers.svg';
 import tort from '../img/tort.svg';
-import ball from '../img/air_ball.svg';
+import ball from '../img/air_ball.png';
 import fruts from '../img/frut.svg';
 import gifts from '../img/gifts.svg';
 import plants from '../img/plants.svg';

@@ -2,7 +2,7 @@ import React from "react";
 import Header from '../Header/Header';
 import './Main.scss';
 import 'swiper/css';
-import image from '../../img/main__image.svg';
+import image from '../../img/main__image.jpg';
 // для главного меню 
 import { mainCardProducts, cardStock } from '../../utils/constantsMainPage';
 import button_left from '../../img/button_left.svg';

@@ -32,6 +32,7 @@ function ProductCard({ width, height, image, text, price, priseOld, id, path, im
 
         dispatch(setPopupCardState(allProps))
         navigate(`${path}/${id}`);
+        window.scrollTo(0, 0);
     }
 
     return (

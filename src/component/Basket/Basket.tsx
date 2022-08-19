@@ -14,6 +14,7 @@ function Basket() {
     // времянка
     function getOrder() {
         basketState.length < 1 ? alert('Для оформления заказа вам нужно выбрать товар!') : navigate('/order');
+        window.scrollTo(0, 0);
     }
 
     // суммируем общую цену в корзине
