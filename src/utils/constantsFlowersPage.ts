@@ -20,8 +20,8 @@ import flowers5_3 from '../img/flowers/5-3.jpg';
 
 export interface productCardShema {
     image: string,
-    image2: string,
-    image3: string,
+    image2?: string,
+    image3?: string,
     text: string,
     price: number,
     width: number,
@@ -29,12 +29,12 @@ export interface productCardShema {
     priseOld?: string,
     id: number,
     minProduct: number,
-    color: string[],
-    reviews: {
+    color?: string[],
+    reviews?: {
         name: string,
         text: string
     }[],
-    otherServices: {
+    otherServices?: {
         price: number,
         text: string
     }[],
@@ -132,7 +132,7 @@ export const productCard: productCardShema[] = [
         image2: flowers2,
         image3: flowers3,
         // image_1: require('../img/flowers.svg'),
-        text: 'Корзина фиолетово-красных  роз',
+        text: 'Корзина фиолетово-красных роз',
         price: 1000,
         minProduct: 1,
         width: 60,

@@ -3,7 +3,7 @@ import '../Basket/Basket.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
-import { orderCard } from '../../utils/constantsBasketPage';
+//import { orderCard } from '../../utils/constantsBasketPage';
 import OrderProductCard from '../BasketOrderRegistration/OrderProductCard/OrderProductCard';
 import BasketCheckBox from '../Basket/BasketCheckBox/BasketCheckBox';
 import image from '../../img/image.svg';
@@ -13,35 +13,61 @@ import email from '../../img/input_email.svg';
 import people from '../../img/input_peaple.svg';
 import arrow from '../../img/arrow_down.svg';
 import calendar from '../../img/input_calendar.svg';
-import { useAppSelector, useAppDispatch } from '../../../src/hooks';
+import { useAppSelector } from '../../../src/hooks';
 
 function BasketOrderRegistration() {
 
     // берем данные товара, который выбрал покупатель
     const basketState = useAppSelector(state => state.basket.basketState);
 
-    const [phone, setPhone] = React.useState();
+    const [phoneValidate, setPhoneValidate] = React.useState(true);
+    const [phone, setPhone] = React.useState('');
     const onChangePhone = (e) => {
-        setPhone(e.target.value)
+        setPhone(e.target.value);
+        const re =
+            /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        if (!re.test(String(e.target.value).toLowerCase())) {
+            setPhoneValidate(false);
+        } else {
+            setPhoneValidate(true);
+        }
     }
-
+    const [emailValidate, setEmailValidate] = React.useState(true);
     const [emailValue, setEmailValue] = React.useState();
     const onChangeEmail = (e) => {
-        setEmailValue(e.target.value)
+        setEmailValue(e.target.value);
+        const re =
+            /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (!re.test(String(e.target.value).toLowerCase())) {
+            setEmailValidate(false);
+        } else { setEmailValidate(true); }
     }
-
+    const [nameValidate, setNameValidate] = React.useState(true);
     const [name, setName] = React.useState();
     const onChangeName = (e) => {
-        setName(e.target.value)
+        setName(e.target.value);
+        e.target.value.length < 2 ? setNameValidate(false) : setNameValidate(true);
     }
+
+    const [FIOValidate, setFIOValidate] = React.useState(true);
     const [FIO, setFIO] = React.useState();
     const onChangeFIO = (e) => {
-        setFIO(e.target.value)
+        setFIO(e.target.value);
+        e.target.value.length < 8 ? setFIOValidate(false) : setFIOValidate(true);
     }
+    const [phoneAdressValidate, setPhoneAdressValidate] = React.useState(true);
     const [phoneAdress, setPhoneAdress] = React.useState();
     const onChangePhoneAdress = (e) => {
         setPhoneAdress(e.target.value)
+        const re =
+            /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        if (!re.test(String(e.target.value).toLowerCase())) {
+            setPhoneAdressValidate(false);
+        } else {
+            setPhoneAdressValidate(true);
+        }
     }
+
     const [adress, setAdress] = React.useState();
     const onChangeAdress = (e) => {
         setAdress(e.target.value)
@@ -102,7 +128,6 @@ function BasketOrderRegistration() {
         setSummOrder(summ);
     }, [basketState])
 
-    console.log(basketState);
     return (
         <>
             <Header />
@@ -123,7 +148,7 @@ function BasketOrderRegistration() {
                 <div className='order__list'>
                     <p className='order__list-title'><span className='order__list-title-span'>ваш заказ</span> в г.Москва с доставкой на сумму <span className='order__list-title-span'>{summOrder}₽</span> </p>
                     <>
-                        {basketState.map((item) => <OrderProductCard image={item.image} text={item.text} price={item.price} counter={item.counter} />)}
+                        {basketState.map((item, index) => <OrderProductCard image={item.image} text={item.text} price={item.price} counter={item.counter} key={index} />)}
                     </>
                 </div>
                 <div className='order__check-box-container'>
@@ -131,7 +156,7 @@ function BasketOrderRegistration() {
                     <BasketCheckBox image={fotoapparat} text={'Фото при получении -'} textSpan={'бесплатно!'} qestionInformation={'вопрос'} checked={сheckboxBouquetPhoto} SetChecked={SetCheckboxBouquetPhoto} />
                     <BasketCheckBox image={fotoapparat} text={'Фото букета до доставки -'} textSpan={'бесплатно!'} qestionInformation={'вопрос'} checked={сheckboxFhotoFree} SetChecked={SetCheckboxFhotoFree} />
                 </div>
-                <form className='order__form'>
+                <form className='order__form' noValidate>
                     <div className='order__form-title-container'>
                         <h2 className='order__form-title'>ОТПРАВИТЕЛЬ</h2>
                         <div className='order__form-title-checkbox-container'>
@@ -142,19 +167,19 @@ function BasketOrderRegistration() {
                     <div className='order__form-input-container'>
                         <div className="input-width">
                             <div className="width-setter">
-                                <input className='input' type="tel" value={phone || ''} onChange={onChangePhone} placeholder='Ваш телефон' />
+                                <input className={phoneValidate ? 'input' : 'input input_novalidate'} type="tel" value={phone || ''} onChange={onChangePhone} placeholder='Ваш телефон' />
                             </div>
                             <img className='order__form-input-icon' src={telephone} alt="иконка" />
                         </div>
                         <div className="input-width">
                             <div className="width-setter">
-                                <input className='input' type="email" value={emailValue || ''} onChange={onChangeEmail} placeholder='Ваш е-mail' />
+                                <input className={emailValidate ? 'input' : 'input input_novalidate'} type="email" value={emailValue || ''} onChange={onChangeEmail} placeholder='Ваш е-mail' />
                             </div>
                             <img className='order__form-input-icon' src={email} alt="иконка" />
                         </div>
                         <div className="input-width">
                             <div className="width-setter">
-                                <input className='input' type="text" value={name || ''} onChange={onChangeName} placeholder='Ваше имя' />
+                                <input className={nameValidate ? 'input' : 'input input_novalidate'} type="text" value={name || ''} onChange={onChangeName} placeholder='Ваше имя' />
                             </div>
                             <img className='order__form-input-icon' src={people} alt="иконка" />
                         </div>
@@ -165,13 +190,13 @@ function BasketOrderRegistration() {
                     <div className='order__form-input-container'>
                         <div className="input-width">
                             <div className="width-setter">
-                                <input className='input' type="text" value={FIO || ''} onChange={onChangeFIO} placeholder='Фамилия Имя Отчетсво' />
+                                <input className={FIOValidate ? 'input' : 'input input_novalidate'} type="text" value={FIO || ''} onChange={onChangeFIO} placeholder='Фамилия Имя Отчетсво' />
                             </div>
                             <img className='order__form-input-icon' src={people} alt="иконка" />
                         </div>
                         <div className="input-width">
                             <div className="width-setter">
-                                <input className='input' type="tel" value={phoneAdress || ''} onChange={onChangePhoneAdress} placeholder='Телефон получателя' />
+                                <input className={phoneAdressValidate ? 'input' : 'input input_novalidate'} type="tel" value={phoneAdress || ''} onChange={onChangePhoneAdress} placeholder='Телефон получателя' />
                             </div>
                             <img className='order__form-input-icon' src={telephone} alt="иконка" />
                         </div>

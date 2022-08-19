@@ -85,6 +85,7 @@ function PopupCardProduct() {
     function showImage(e) {
         SetImage(e.target.src)
     }
+
     interface data {
         image: string,
         width: number,
@@ -109,9 +110,7 @@ function PopupCardProduct() {
             priceOtherServices: Number(selectDecoration),
             counter: Number(selectQuantity)
         }
-        console.log(data);
-        dispatch(setBasketState(data))
-        //alert(`Товар ${popupCardState.text},  на сумму ${(popupCardState.price + Number(selectDecoration))} рублей, успешно добавлен в корзину!`)
+        dispatch(setBasketState(data));
     }
 
     return (
