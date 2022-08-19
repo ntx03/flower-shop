@@ -58,12 +58,16 @@ function Main() {
             return 15;
         } else return 9;
     }
+
     // количество слайдов в контейнере
     function monitorSlidesPerView(): number {
         if (width > 1000) {
             return 4;
-        } else return 3;
+        } else if (width > 400) {
+            return 3;
+        } else return 2;
     }
+
     const [fileAppend, SetFileAppend] = React.useState(false);
     const [toSend, setToSend] = React.useState({
         from_name: '',
@@ -71,7 +75,7 @@ function Main() {
         my_idea: '',
         file: '',
     });
-
+    // валидируем фото которое добавляем
     function handleChangeFile(event) {
         const file = event.target.files[0];
         if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
@@ -137,10 +141,9 @@ function Main() {
         e.preventDefault();
         alert('Форма заполнена неправильно!')
     }
-
+    // отправляем сообщение с предложением
     const onSubmit = (e) => {
         console.log(validate);
-        alert('fsdf');
         e.preventDefault();
         send(
             'service_zj8r1gp',
@@ -202,8 +205,8 @@ function Main() {
                         }}
                     >
                         <div className="main__stock-container">
-                            {cardStock.map((item, index) => {
-                                return (<SwiperSlide><CardStock price={item.price} priseOld={item.priseOld} image={item.image} text={item.text} key={index} /></SwiperSlide>)
+                            {cardStock.map((item) => {
+                                return (<SwiperSlide><CardStock price={item.price} priseOld={item.priseOld} image={item.image} text={item.text} key={item.id} width={item.width} height={item.height} id={item.id} minProduct={item.minProduct} /></SwiperSlide>)
                             }
                             )}
                         </div>

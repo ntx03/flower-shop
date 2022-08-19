@@ -6,7 +6,15 @@ import gifts from '../img/gifts.svg';
 import plants from '../img/plants.svg';
 import servises from '../img/servises.svg';
 import accessories from '../img/accessories.svg';
-import stock_flowers from '../img/stock_flower.svg';
+import { productCardShema } from '../utils/constantsFlowersPage';
+import flowers1 from '../img/flowers/1.jpg';
+import flowers1_1 from '../img/flowers/1-1.jpg';
+import flowers2_1 from '../img/flowers/2-1.webp';
+import flowers3_1 from '../img/flowers/3-1.jpg';
+import flowers4_1 from '../img/flowers/4-1.webp';
+import flowers5_1 from '../img/flowers/5-1.webp';
+import flowers5_2 from '../img/flowers/5-2.jpg';
+import flowers5_3 from '../img/flowers/5-3.jpg';
 
 interface defaultStateShema {
     link: string,
@@ -67,61 +75,85 @@ export const mainCardProducts: defaultStateShema[] = [
     },
 ]
 
-
-interface cardStockShema {
-    price: string,
-    priseOld: string,
-    image: string,
-    text: string,
-}
-
-export const cardStock: cardStockShema[] = [
+export const cardStock: productCardShema[] = [
     {
-        price: '1500 ₽',
-        priseOld: '2000 ₽',
-        image: stock_flowers,
-        text: 'Корзина роз yf pfrfop e ntnb rkfhs',
+        price: 1000,
+        priseOld: '1100 ₽',
+        image: flowers1,
+        text: 'Корзина фиолетово-красных роз',
+        width: 60,
+        height: 40,
+        id: Math.round(0.32717058908558465 * 100000000),
+        minProduct: 1,
     },
     {
-        price: '1500 ₽',
+        price: 1500,
         priseOld: '2000 ₽',
-        image: stock_flowers,
-        text: 'Корзина роз ',
+        image: flowers1_1,
+        text: 'Букет из роз с оформлением',
+        width: 30,
+        height: 20,
+        id: Math.round(0.32717058908554444 * 100000000),
+        minProduct: 1,
     },
     {
-        price: '1500 ₽',
-        priseOld: '2000 ₽',
-        image: stock_flowers,
-        text: 'Корзина роз ',
+        price: 2000,
+        priseOld: '2500 ₽',
+        image: flowers2_1,
+        text: 'Букет комбинированных по цвету роз',
+        width: 50,
+        height: 40,
+        id: Math.round(0.327170584852108558465 * 100000000),
+        minProduct: 1,
     },
     {
-        price: '1500 ₽',
-        priseOld: '2000 ₽',
-        image: stock_flowers,
-        text: 'Корзина роз yf pfrfop e ntnb rkfhs',
+        price: 999,
+        priseOld: '2500 ₽',
+        image: flowers3_1,
+        text: 'Букет розовых роз',
+        width: 30,
+        height: 30,
+        id: Math.round(0.32717058908551165 * 100000000),
+        minProduct: 1,
     },
     {
-        price: '1500 ₽',
-        priseOld: '2000 ₽',
-        image: stock_flowers,
-        text: 'Корзина роз yf pfrfop e ntnb rkfhs',
+        price: 1400,
+        priseOld: '2500 ₽',
+        image: flowers4_1,
+        text: 'Букет красно-белых роз',
+        width: 40,
+        height: 40,
+        id: Math.round(0.327170589012453558465 * 100000000),
+        minProduct: 1,
     },
     {
-        price: '1500 ₽',
-        priseOld: '2000 ₽',
-        image: stock_flowers,
-        text: 'Корзина роз yf pfrfop e ntnb rkfhs',
+        price: 3000,
+        priseOld: '3500 ₽',
+        image: flowers5_1,
+        text: 'Букет розовых роз с оформлением хризантемами',
+        width: 70,
+        height: 60,
+        id: Math.round(0.32717054561208558465 * 100000000),
+        minProduct: 1,
     },
     {
-        price: '1500 ₽',
-        priseOld: '2000 ₽',
-        image: stock_flowers,
-        text: 'Корзина роз yf pfrfop e ntnb rkfhs',
+        price: 1999,
+        priseOld: '2100 ₽',
+        image: flowers5_2,
+        text: 'Букет из роз с оформлением',
+        width: 30,
+        height: 20,
+        id: Math.round(0.32717058908558465 * 100000000),
+        minProduct: 1,
     },
     {
-        price: '1500 ₽',
-        priseOld: '2000 ₽',
-        image: stock_flowers,
-        text: 'Корзина роз yf pfrfop e ntnb rkfhs',
+        price: 2199,
+        priseOld: '2500 ₽',
+        image: flowers5_3,
+        text: 'Букет из роз',
+        width: 30,
+        height: 20,
+        id: Math.round(0.32717058908558465 * 100000000),
+        minProduct: 1,
     },
 ]

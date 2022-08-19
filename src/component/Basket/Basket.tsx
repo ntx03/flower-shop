@@ -3,18 +3,18 @@ import './Basket.scss';
 import BasketProductCard from './BasketProductCard/BasketProductCard';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppSelector, useAppDispatch } from '../../../src/hooks';
+import { useAppSelector } from '../../../src/hooks';
 
 
 function Basket() {
     const navigate = useNavigate();
+    // берем данные товара, который выбрал покупатель
+    const basketState = useAppSelector(state => state.basket.basketState);
 
     // времянка
     function getOrder() {
         basketState.length < 1 ? alert('Для оформления заказа вам нужно выбрать товар!') : navigate('/order');
     }
-    // берем данные товара, который выбрал покупатель
-    const basketState = useAppSelector(state => state.basket.basketState);
 
     // суммируем общую цену в корзине
     const [summOrder, setSummOrder] = React.useState(0);
