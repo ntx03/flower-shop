@@ -47,6 +47,7 @@ function CardStock(props) {
             counter: 1,
         }
         dispatch(setBasketState(data));
+        alert('Товар успешно добавлен в корзину!');
     }
 
     return (
