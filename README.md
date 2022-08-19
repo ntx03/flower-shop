@@ -9,4 +9,4 @@
 - заполнить товарами магазин
 
 ## где посмотреть
-Ссылка на сайт: https://flower-shop-vercel.vercel.app;
+Ссылка на сайт: https://flower-shop-ecru.vercel.app/;

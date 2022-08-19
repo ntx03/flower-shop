@@ -117,7 +117,7 @@ function PopupCardProduct() {
         <>
             <Header />
             <div className="goBack">
-                <Link to={popupCardState.path} className="goBack__image" onClick={() => window.scrollTo(0, 0)} ><img src={arrow_back} alt="стрелка назад" /></Link>
+                <Link to={popupCardState.path} className="goBack__image"  ><img src={arrow_back} alt="стрелка назад" /></Link>
                 <p className="goBack__text">Обратно в магазин</p>
             </div>
             <section className="card-product">
